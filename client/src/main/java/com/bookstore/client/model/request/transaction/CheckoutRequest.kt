@@ -1,6 +1,6 @@
-package com.bookstore.model.request.transaction
+package com.bookstore.client.model.request.transaction
 
-import com.bookstore.config.AppConfig
+import com.bookstore.client.config.AppConfig
 
 data class CheckoutRequest(
     val cartDetailIds: List<Int>,

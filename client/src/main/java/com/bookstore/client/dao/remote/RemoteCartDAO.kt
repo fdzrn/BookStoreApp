@@ -1,7 +1,7 @@
 package com.bookstore.client.dao.remote
 
 import com.bookstore.client.config.AppConfig
-import com.bookstore.model.request.cart.CartRequest
+import com.bookstore.client.model.request.cart.CartRequest
 import com.bookstore.client.model.response.cart.Cart
 import okhttp3.ResponseBody
 import retrofit2.Response

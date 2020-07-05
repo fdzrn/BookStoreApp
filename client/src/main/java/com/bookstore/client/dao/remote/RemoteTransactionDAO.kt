@@ -1,6 +1,6 @@
 package com.bookstore.client.dao.remote
 
-import com.bookstore.model.request.transaction.CheckoutRequest
+import com.bookstore.client.model.request.transaction.CheckoutRequest
 import com.bookstore.model.request.transaction.PaymentRequest
 import com.bookstore.model.response.transaction.Transaction
 import retrofit2.http.Body

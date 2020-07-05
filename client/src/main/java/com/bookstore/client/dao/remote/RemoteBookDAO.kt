@@ -1,7 +1,7 @@
 package com.bookstore.client.dao.remote
 
 import com.bookstore.client.config.AppConfig
-import com.bookstore.model.request.book.FavouriteBookRequest
+import com.bookstore.client.model.request.book.FavouriteBookRequest
 import com.bookstore.client.model.response.book.Book
 import com.bookstore.model.response.book.FavouriteBook
 import okhttp3.ResponseBody

@@ -3,7 +3,7 @@ package com.bookstore.client.repository
 import com.bookstore.client.dao.remote.RemoteCartDAO
 import com.bookstore.client.utils.SessionHelper
 import com.bookstore.client.utils.SessionHelper.asBearer
-import com.bookstore.model.request.cart.CartRequest
+import com.bookstore.client.model.request.cart.CartRequest
 import com.bookstore.client.model.response.cart.Cart
 import okhttp3.ResponseBody
 import retrofit2.Response

@@ -17,6 +17,7 @@ import com.bookstore.client.utils.ViewHelper.hide
 import com.bookstore.client.utils.ViewHelper.show
 import com.bookstore.constant.RetrofitStatus
 import com.bookstore.client.model.response.book.Book
+import com.bookstore.client.ui.book.DetailBookActivity
 import kotlinx.android.synthetic.main.fragment_book.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -65,7 +66,7 @@ class BookFragment: Fragment(), BookItemListener {
     }
 
     override fun onItemClick(book: Book) {
-        val intent = intent(requireContext(),DetailBookActivity::class.java)
+        val intent = Intent(requireContext(), DetailBookActivity::class.java)
         startActivity(intent.putExtra(DetailBookActivity.DATA, book))
     }
 

@@ -1,6 +1,6 @@
-package com.bookstore.model.request.book
+package com.bookstore.client.model.request.book
 
-import com.bookstore.config.AppConfig
+import com.bookstore.client.config.AppConfig
 
 data class FavouriteBookRequest(
     val bookId: Int,

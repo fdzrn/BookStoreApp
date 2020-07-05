@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.bookstore.client.config.AppConfig
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = AppConfig.ROOM_DEFAULT_DATABASE_NAME)
+@Entity(tableName = AppConfig.ROOM_DEFAULT_SESSION_TABLE_NAME)
 data class AccessToken(
     @PrimaryKey @ColumnInfo(name = "id") val id: Long = 0, // terjadi increment secara otomatis pke long biar deret angkanya lebih banyak
     @ColumnInfo(name = "access_token") @SerializedName("access_token") val accessToken: String,

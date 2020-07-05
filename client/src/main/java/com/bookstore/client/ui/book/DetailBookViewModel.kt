@@ -13,8 +13,8 @@ import com.bookstore.constant.CartStatus
 import com.bookstore.constant.RetrofitStatus
 import com.bookstore.client.model.formatted.book.FavouriteBookResponse
 import com.bookstore.model.formatted.cart.CartResponse
-import com.bookstore.model.request.book.FavouriteBookRequest
-import com.bookstore.model.request.cart.CartRequest
+import com.bookstore.client.model.request.book.FavouriteBookRequest
+import com.bookstore.client.model.request.cart.CartRequest
 import com.bookstore.client.model.response.book.Book
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

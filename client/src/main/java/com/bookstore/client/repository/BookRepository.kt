@@ -3,7 +3,7 @@ package com.bookstore.client.repository
 import com.bookstore.client.dao.remote.RemoteBookDAO
 import com.bookstore.client.utils.SessionHelper
 import com.bookstore.client.utils.SessionHelper.asBearer
-import com.bookstore.model.request.book.FavouriteBookRequest
+import com.bookstore.client.model.request.book.FavouriteBookRequest
 import com.bookstore.client.model.response.book.Book
 import com.bookstore.model.response.book.FavouriteBook
 import okhttp3.ResponseBody

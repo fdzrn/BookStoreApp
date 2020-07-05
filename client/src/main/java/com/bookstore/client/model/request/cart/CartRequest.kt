@@ -1,6 +1,6 @@
-package com.bookstore.model.request.cart
+package com.bookstore.client.model.request.cart
 
-import com.bookstore.config.AppConfig
+import com.bookstore.client.config.AppConfig
 
 data class CartRequest(
     val bookId: Int,

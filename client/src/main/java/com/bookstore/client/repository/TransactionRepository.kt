@@ -3,7 +3,7 @@ package com.bookstore.client.repository
 import com.bookstore.client.dao.remote.RemoteTransactionDAO
 import com.bookstore.client.utils.SessionHelper
 import com.bookstore.client.utils.SessionHelper.asBearer
-import com.bookstore.model.request.transaction.CheckoutRequest
+import com.bookstore.client.model.request.transaction.CheckoutRequest
 import com.bookstore.model.request.transaction.PaymentRequest
 import com.bookstore.model.response.transaction.Transaction
 

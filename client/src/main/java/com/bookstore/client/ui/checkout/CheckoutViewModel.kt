@@ -13,7 +13,7 @@ import com.bookstore.constant.RetrofitStatus
 import com.bookstore.model.formatted.cart.CartResponse
 import com.bookstore.model.formatted.transaction.CheckoutResponse
 import com.bookstore.model.formatted.transaction.PaymentResponse
-import com.bookstore.model.request.transaction.CheckoutRequest
+import com.bookstore.client.model.request.transaction.CheckoutRequest
 import com.bookstore.model.request.transaction.PaymentRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
