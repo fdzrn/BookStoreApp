@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,10 +10,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scrollbars="none"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/invoice_charge_container"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/invoice_charge_container">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,78 +33,78 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/activity_padding"
                     android:fontFamily="@font/rubik_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/text_title_fragment_payment"
+                    android:textAlignment="textStart"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
-                    android:includeFontPadding="false"
-                    android:textAlignment="textStart"
-                    android:text="@string/text_title_fragment_payment"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/text_step"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/text_step"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/text_step"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubik"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
                     android:includeFontPadding="false"
                     android:text="@string/text_step_2_checkout"
-                    app:layout_constraintTop_toTopOf="@id/text_title"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/text_title"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="@id/text_title"/>
+                    app:layout_constraintTop_toTopOf="@id/text_title" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-            
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/payment_type_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
                 android:layout_marginTop="@dimen/activity_padding"
+                android:background="@android:color/white"
                 android:padding="@dimen/activity_padding">
-                
+
                 <TextView
                     android:id="@+id/text_title_payment_type"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubik_medium"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/black"
-                    android:text="@string/text_title_payment_type"
                     android:includeFontPadding="false"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/text_title_payment_type"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <FrameLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/activity_padding"
-                    android:paddingTop="@dimen/activity_padding_half"
-                    android:paddingStart="16dp"
-                    android:paddingBottom="@dimen/activity_padding_half"
-                    android:paddingEnd="16dp"
                     android:background="@drawable/background_payment_type"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:focusable="true"
                     android:clickable="true"
-                    app:layout_constraintTop_toBottomOf="@id/text_title_payment_type"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:paddingStart="16dp"
+                    android:paddingTop="@dimen/activity_padding_half"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="@dimen/activity_padding_half"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent">
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_title_payment_type">
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
                         android:checked="true"
+                        android:fontFamily="@font/rubik"
                         android:paddingStart="@dimen/activity_padding_half"
                         android:paddingEnd="@dimen/activity_padding_half"
-                        android:fontFamily="@font/rubik"
-                        android:textSize="16sp"
-                        android:textColor="@color/colorPrimary"
                         android:text="@string/text_payment_type_bank_transfer"
-                        android:buttonTint="@color/colorPrimary"/>
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp" />
                 </FrameLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -111,34 +112,71 @@
                 android:id="@+id/invoice_detail_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
                 android:layout_marginTop="@dimen/activity_padding"
-                android:layout_marginBottom="@dimen/activity_padding">
+                android:layout_marginBottom="@dimen/activity_padding"
+                android:background="@android:color/white">
 
                 <TextView
                     android:id="@+id/text_title_invoice_detail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/rubik_medium"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/black"
-                    android:text="@string/text_title_invoice_detail"
-                    android:includeFontPadding="false"
                     android:layout_margin="@dimen/activity_padding"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/rubik_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/text_title_invoice_detail"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TableLayout
                     android:id="@+id/table_invoice_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/activity_padding"
                     android:layout_marginStart="@dimen/activity_padding"
+                    android:layout_marginTop="@dimen/activity_padding"
                     android:layout_marginEnd="@dimen/activity_padding"
-                    app:layout_constraintTop_toBottomOf="@id/text_title_invoice_detail"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintTop_toBottomOf="@id/text_title_invoice_detail">
+
+                    <TableRow
+                        android:layout_marginBottom="@dimen/activity_padding_half"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_medium"
+                            android:includeFontPadding="false"
+                            android:text="@string/text_invoice_number"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_padding_half"
+                            android:fontFamily="@font/rubik_medium"
+                            android:includeFontPadding="false"
+                            android:text="@string/text_equal"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/text_invoice_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_padding_half"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/rubik"
+                            android:includeFontPadding="false"
+                            android:text="@string/text_empty"
+                            android:textColor="@android:color/black"
+                            android:textIsSelectable="true"
+                            android:textSize="16sp" />
+                    </TableRow>
 
                     <TableRow android:layout_marginBottom="@dimen/activity_padding_half">
 
@@ -146,22 +184,127 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/rubik_medium"
-                            android:textSize="16sp"
+                            android:includeFontPadding="false"
+                            android:text="@string/text_invoice_items"
                             android:textColor="@android:color/black"
-                            android:text="@string/text_invoice_number"
-                            android:includeFontPadding="false"/>
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_padding_half"
+                            android:fontFamily="@font/rubik_medium"
+                            android:includeFontPadding="false"
+                            android:text="@string/text_equal"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
 
-
+                        <TextView
+                            android:id="@+id/text_invoice_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_padding_half"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/rubik"
+                            android:includeFontPadding="false"
+                            android:text="@string/text_empty"
+                            android:textColor="@android:color/black"
+                            android:textIsSelectable="true"
+                            android:textSize="16sp" />
                     </TableRow>
 
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_medium"
+                            android:includeFontPadding="false"
+                            android:text="@string/text_invoice_items"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_padding_half"
+                            android:fontFamily="@font/rubik_medium"
+                            android:includeFontPadding="false"
+                            android:text="@string/text_equal"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+                    </TableRow>
                 </TableLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_padding"
+                    android:clipToPadding="false"
+                    android:paddingStart="@dimen/activity_padding_half"
+                    android:paddingEnd="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/table_invoice_detail" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/invoice_charge_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/text_title_total_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_padding"
+            android:layout_marginEnd="@dimen/activity_padding"
+            android:layout_marginBottom="@dimen/activity_padding_half"
+            android:fontFamily="@font/rubik_medium"
+            android:includeFontPadding="false"
+            android:text="@string/text_title_invoice_charge"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/button_pay"
+            app:layout_constraintEnd_toStartOf="@id/text_title_total_price"
+            app:layout_constraintStart_toStartOf="@id/button_pay"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rubik_medium"
+            android:includeFontPadding="false"
+            android:text="@string/text_empty"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/text_title_total_price"
+            app:layout_constraintEnd_toEndOf="@id/button_pay"
+            app:layout_constraintTop_toTopOf="@id/text_title_total_price" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_padding"
+            android:text="@string/button_pay_now"
+            app:icon="@drawable/ic_payment_white"
+            app:iconGravity="textStart"
+            app:iconPadding="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
