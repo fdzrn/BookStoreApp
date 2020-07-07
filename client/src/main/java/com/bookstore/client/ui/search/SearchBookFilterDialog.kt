@@ -13,17 +13,18 @@ import kotlinx.android.synthetic.main.dialog_search_book_filter.*
 class SearchBookFilterDialog (
     private val searchBookItemListener: SearchBookItemListener, private val bookTypes: List<BookType>
 ) : BottomSheetDialogFragment() {
+
     companion object {
         const val TAG = "SearchBookFilterDialog"
     }
 
-    override fun onCreateView(
+    override fun onCreateView( // ini baru deklarasinya
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.dialog_search_book_filter, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) { // ini action untuk manipulasi data dari fargment
         super.onViewCreated(view, savedInstanceState)
         bookTypes.distinct().forEach {
             if (it == BookType.ART) checkbox_art.isChecked = true

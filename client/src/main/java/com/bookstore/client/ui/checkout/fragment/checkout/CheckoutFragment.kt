@@ -21,9 +21,6 @@ import com.bookstore.constant.CartStatus
 import com.bookstore.constant.RetrofitStatus
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_checkout.*
-import kotlinx.android.synthetic.main.fragment_checkout.loading
-import kotlinx.android.synthetic.main.fragment_checkout.recyclerview
-import kotlinx.android.synthetic.main.fragment_checkout.swipe_refresh_layout
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class CheckoutFragment : Fragment(), CheckoutItemListener {
@@ -36,7 +33,7 @@ class CheckoutFragment : Fragment(), CheckoutItemListener {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_checkout,container, false)
+    ): View? = inflater.inflate(R.layout.fragment_checkout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -48,9 +45,13 @@ class CheckoutFragment : Fragment(), CheckoutItemListener {
                     button_checkout.isEnabled = true
                     placeholder_empty.hide()
                     recyclerview.show()
-                    checkoutAdapter.setData(list.sortedBy { it.id }.filter { it.cartDetailStatus == CartStatus.CARTED.toString() })
+                    checkoutAdapter.setData(list.sortedBy { it.id }
+                        .filter { it.cartDetailStatus == CartStatus.CARTED.toString() })
                 }
-                RetrofitStatus.UNAUTHORIZED -> Log.e(this::class.java.simpleName, "Your session is expired, please resign-in")
+                RetrofitStatus.UNAUTHORIZED -> Log.e(
+                    this::class.java.simpleName,
+                    "Your session is expired, please resign-in"
+                )
                 else -> {
                     recyclerview.hide()
                     placeholder_empty.show()
@@ -61,18 +62,28 @@ class CheckoutFragment : Fragment(), CheckoutItemListener {
 
         checkoutViewModel.checkoutResponse.observe(viewLifecycleOwner, Observer { checkout ->
             swipe_refresh_layout.isRefreshing = false
-            when(checkout.status) {
-                RetrofitStatus.SUCCESS -> Log.d(this::class.java.simpleName, "Successfully perform checkout")
-                RetrofitStatus.UNAUTHORIZED -> Log.e(this::class.java.simpleName, "Your session is expired, please resign-in again")
+            when (checkout.status) {
+                RetrofitStatus.SUCCESS -> Log.d(
+                    this::class.java.simpleName,
+                    "Successfully perform checkout"
+                )
+                RetrofitStatus.UNAUTHORIZED -> Log.e(
+                    this::class.java.simpleName,
+                    "Your session is expired, please resign-in again"
+                )
                 else -> {
-                    Snackbar.make(swipe_refresh_layout, "Error occurred when performing checkout", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(
+                        swipe_refresh_layout,
+                        "Error occurred when performing checkout",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                 }
             }
         })
         swipe_refresh_layout.setOnRefreshListener {
             checkoutViewModel.getCart()
         }
-        recyclerview.apply{
+        recyclerview.apply {
             adapter = checkoutAdapter
             layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
@@ -95,7 +106,7 @@ class CheckoutFragment : Fragment(), CheckoutItemListener {
     }
 
     override fun onItemDraw(cartDetails: List<CartDetail>) {
-        val totalPrice = cartDetails.map { it.bookModel.price.toLong()}.sum()
+        val totalPrice = cartDetails.map { it.bookModel.price.toLong() }.sum()
         text_total_price.text = getString(R.string.text_item_cart_book_price, totalPrice)
         button_checkout.isEnabled = cartDetails.isNotEmpty()
     }
@@ -104,6 +115,4 @@ class CheckoutFragment : Fragment(), CheckoutItemListener {
         val cartDetailIds = checkoutAdapter.getData().map { it.id }
         checkoutViewModel.performCheckout(cartDetailIds)
     }
-
-
 }

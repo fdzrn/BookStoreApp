@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
@@ -44,7 +45,7 @@
                 android:fontFamily="@font/rubik_medium"
                 android:paddingStart="2dp"
                 android:paddingEnd="2dp"
-                android:text="@string/checkbox_book_type_fiction"
+                android:text="@string/checkbox_book_type_romance"
                 app:buttonTint="@color/colorPrimary" />
         </TableRow>
 
@@ -58,7 +59,7 @@
                 android:fontFamily="@font/rubik_medium"
                 android:paddingStart="2dp"
                 android:paddingEnd="2dp"
-                android:text="@string/checkbox_book_type_fiction"
+                android:text="@string/checkbox_book_type_history"
                 app:buttonTint="@color/colorPrimary" />
 
             <CheckBox
@@ -69,7 +70,7 @@
                 android:fontFamily="@font/rubik_medium"
                 android:paddingStart="2dp"
                 android:paddingEnd="2dp"
-                android:text="@string/checkbox_book_type_fiction"
+                android:text="@string/checkbox_book_type_science"
                 app:buttonTint="@color/colorPrimary" />
         </TableRow>
 
@@ -83,7 +84,7 @@
                 android:fontFamily="@font/rubik_medium"
                 android:paddingStart="2dp"
                 android:paddingEnd="2dp"
-                android:text="@string/checkbox_book_type_fiction"
+                android:text="@string/checkbox_book_type_horror"
                 app:buttonTint="@color/colorPrimary" />
 
             <CheckBox
@@ -94,7 +95,7 @@
                 android:fontFamily="@font/rubik_medium"
                 android:paddingStart="2dp"
                 android:paddingEnd="2dp"
-                android:text="@string/checkbox_book_type_fiction"
+                android:text="@string/checkbox_book_type_art"
                 app:buttonTint="@color/colorPrimary" />
         </TableRow>
 
@@ -108,7 +109,7 @@
                 android:fontFamily="@font/rubik_medium"
                 android:paddingStart="2dp"
                 android:paddingEnd="2dp"
-                android:text="@string/checkbox_book_type_fiction"
+                android:text="@string/checkbox_book_type_non_fiction"
                 app:buttonTint="@color/colorPrimary" />
 
             <CheckBox
@@ -119,7 +120,7 @@
                 android:fontFamily="@font/rubik_medium"
                 android:paddingStart="2dp"
                 android:paddingEnd="2dp"
-                android:text="@string/checkbox_book_type_fiction"
+                android:text="@string/checkbox_book_type_psychology"
                 app:buttonTint="@color/colorPrimary" />
         </TableRow>
 
@@ -145,6 +146,7 @@
             android:id="@+id/button_apply_filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_text_apply" />
+            android:text="@string/button_text_apply"
+            tools:ignore="ButtonStyle" />
     </LinearLayout>
 </LinearLayout>
