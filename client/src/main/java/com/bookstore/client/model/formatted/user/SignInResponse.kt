@@ -1,6 +1,6 @@
 package com.bookstore.model.formatted.user
 
-import com.bookstore.constant.RetrofitStatus
+import com.bookstore.client.constant.RetrofitStatus
 
 data class SignInResponse(
     val status: RetrofitStatus = RetrofitStatus.UNKNOWN

@@ -15,33 +15,64 @@ import retrofit2.Retrofit
 import java.io.IOException
 
 object Retrofit {
-    fun getClient(baseUrl: String = API_BASE_URL) : Retrofit =
+//    fun getClient(baseUrl: String = API_BASE_URL) : Retrofit =
+//        Retrofit.Builder()
+//            .baseUrl(baseUrl)
+//            .client(
+//                OkHttpClient.Builder()
+//                    .addInterceptor{
+//                        val original = it.request()
+//                        val request = original.newBuilder().apply {
+//                            if (original.header("Authorization") == null)
+//                                header("Authorization", Credentials.basic(OAUTH_DEFAULT_CLIENT_ID, OAUTH_DEFAULT_CLIENT_SECRET))
+//                            header("User-Agent", OAUTH_DEFAULT_USER_AGENT)
+//                            method(original.method(), original.body())
+//                        }.build()
+//                        it.proceed(request)
+//                    }
+//                    .connectTimeout(RETROFIT_TIMEOUT, TimeUnit. SECONDS)
+//                    .readTimeout(RETROFIT_TIMEOUT, TimeUnit.SECONDS)
+//                    .writeTimeout(RETROFIT_TIMEOUT,TimeUnit.SECONDS)
+//                    .build()
+//            )
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//
+//    fun Throwable.printRetrofitError() {
+//        this.printStackTrace()
+//        when(this) {
+//            is IOException -> Log.e(this::class.java.simpleName, "Network Error happened in Retrofit | cause: ${this.cause}| message: ${this.message}")
+//            is HttpException -> Log.e(this::class.java.simpleName, "HTTP Exception happened in Retrofit | cause: ${this.cause} | message: ${this.message}")
+//            else -> Log.e(this::class.java.simpleName, "Unknown Error happened in Retrofit | cause: ${this.cause} | message: ${this.message}")
+//        }
+//    }E/HttpException: HTTP Exception happened in Retrofit | cause: null | message: HTTP 404 Not Found
+
+    fun getClient(baseUrl: String = API_BASE_URL): Retrofit =
         Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(
                 OkHttpClient.Builder()
-                    .addInterceptor{
+                    .addInterceptor {
                         val original = it.request()
                         val request = original.newBuilder().apply {
-                            if (original.header("Authorization") == null)
-                                header("Authorization", Credentials.basic(OAUTH_DEFAULT_CLIENT_ID, OAUTH_DEFAULT_CLIENT_SECRET))
-                            header("User Agent", OAUTH_DEFAULT_USER_AGENT)
+                            if(original.header("Authorization") == null) header("Authorization", Credentials.basic(OAUTH_DEFAULT_CLIENT_ID, OAUTH_DEFAULT_CLIENT_SECRET))
+                            header("User-Agent", OAUTH_DEFAULT_USER_AGENT)
                             method(original.method(), original.body())
                         }.build()
                         it.proceed(request)
                     }
-                    .connectTimeout(RETROFIT_TIMEOUT, TimeUnit. SECONDS)
+                    .connectTimeout(RETROFIT_TIMEOUT, TimeUnit.SECONDS)
                     .readTimeout(RETROFIT_TIMEOUT, TimeUnit.SECONDS)
-                    .writeTimeout(RETROFIT_TIMEOUT,TimeUnit.SECONDS)
+                    .writeTimeout(RETROFIT_TIMEOUT, TimeUnit.SECONDS)
                     .build()
             )
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    
+
     fun Throwable.printRetrofitError() {
         this.printStackTrace()
         when(this) {
-            is IOException -> Log.e(this::class.java.simpleName, "Network Error happened in Retrofit | cause: ${this.cause}| message: ${this.message}")
+            is IOException -> Log.e(this::class.java.simpleName, "Network Error happened in Retrofit | cause: ${this.cause} | message: ${this.message}")
             is HttpException -> Log.e(this::class.java.simpleName, "HTTP Exception happened in Retrofit | cause: ${this.cause} | message: ${this.message}")
             else -> Log.e(this::class.java.simpleName, "Unknown Error happened in Retrofit | cause: ${this.cause} | message: ${this.message}")
         }

@@ -2,10 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.main.fragment.home.HomeFragment">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -180,6 +178,46 @@
                     android:background="@color/colorDivider"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/row_purchase_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="@dimen/activity_padding">
+                    <ImageView
+                        android:id="@+id/icon_row_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_payment_black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:contentDescription="@null"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik"
+                        android:textAlignment="textStart"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="@dimen/activity_padding"
+                        android:text="@string/purchase_history"
+                        app:layout_constraintTop_toTopOf="@id/icon_row_1"
+                        app:layout_constraintStart_toEndOf="@id/icon_row_1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/icon_row_1" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="@dimen/activity_padding"
+                    android:layout_marginEnd="@dimen/activity_padding"
+                    android:background="@color/colorDivider"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/row_menu_settings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -189,7 +227,7 @@
                     android:padding="@dimen/activity_padding">
 
                     <ImageView
-                        android:id="@+id/icon_row_1"
+                        android:id="@+id/icon_row_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_settings_black"
@@ -208,10 +246,10 @@
                         android:includeFontPadding="false"
                         android:layout_marginStart="@dimen/activity_padding"
                         android:text="@string/text_profile_menu_settings"
-                        app:layout_constraintTop_toTopOf="@id/icon_row_1"
-                        app:layout_constraintStart_toEndOf="@id/icon_row_1"
+                        app:layout_constraintTop_toTopOf="@id/icon_row_2"
+                        app:layout_constraintStart_toEndOf="@id/icon_row_2"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="@id/icon_row_1" />
+                        app:layout_constraintBottom_toBottomOf="@id/icon_row_2" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -232,7 +270,7 @@
                     android:padding="@dimen/activity_padding">
 
                     <ImageView
-                        android:id="@+id/icon_row_2"
+                        android:id="@+id/icon_row_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_info_outline_black"
@@ -251,10 +289,10 @@
                         android:includeFontPadding="false"
                         android:layout_marginStart="@dimen/activity_padding"
                         android:text="@string/text_profile_menu_about"
-                        app:layout_constraintTop_toTopOf="@id/icon_row_2"
-                        app:layout_constraintStart_toEndOf="@id/icon_row_2"
+                        app:layout_constraintTop_toTopOf="@id/icon_row_3"
+                        app:layout_constraintStart_toEndOf="@id/icon_row_3"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="@id/icon_row_2" />
+                        app:layout_constraintBottom_toBottomOf="@id/icon_row_3" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

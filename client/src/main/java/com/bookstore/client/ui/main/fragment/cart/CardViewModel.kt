@@ -9,7 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.bookstore.client.repository.CartRepository
 import com.bookstore.client.utils.Retrofit.printRetrofitError
 import com.bookstore.constant.CartStatus
-import com.bookstore.constant.RetrofitStatus
+import com.bookstore.client.constant.RetrofitStatus
 import com.bookstore.model.formatted.cart.CartResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

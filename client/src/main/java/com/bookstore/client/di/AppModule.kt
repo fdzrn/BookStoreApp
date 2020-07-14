@@ -15,7 +15,6 @@ import com.bookstore.client.ui.search.SearchBookViewModel
 import com.bookstore.client.ui.signin.SignInViewModel
 import com.bookstore.client.ui.splashscreen.SplashScreenViewModel
 import com.bookstore.client.ui.wishlist.WishlistViewModel
-import com.bookstore.model.formatted.transaction.CheckoutResponse
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

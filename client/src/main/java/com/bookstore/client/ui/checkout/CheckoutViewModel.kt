@@ -8,10 +8,10 @@ import androidx.lifecycle.viewModelScope
 import com.bookstore.client.repository.CartRepository
 import com.bookstore.client.repository.TransactionRepository
 import com.bookstore.client.utils.Retrofit.printRetrofitError
-import com.bookstore.constant.PaymentStatus
-import com.bookstore.constant.RetrofitStatus
+import com.bookstore.client.constant.PaymentStatus
+import com.bookstore.client.constant.RetrofitStatus
 import com.bookstore.model.formatted.cart.CartResponse
-import com.bookstore.model.formatted.transaction.CheckoutResponse
+import com.bookstore.client.model.formatted.transaction.CheckoutResponse
 import com.bookstore.model.formatted.transaction.PaymentResponse
 import com.bookstore.client.model.request.transaction.CheckoutRequest
 import com.bookstore.model.request.transaction.PaymentRequest

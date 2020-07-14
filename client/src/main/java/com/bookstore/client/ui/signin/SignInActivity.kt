@@ -9,10 +9,9 @@ import com.bookstore.client.config.AppConfig
 import com.bookstore.client.ui.main.MainActivity
 import com.bookstore.client.utils.ViewHelper.invisible
 import com.bookstore.client.utils.ViewHelper.show
-import com.bookstore.constant.RetrofitStatus
+import com.bookstore.client.constant.RetrofitStatus
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_sign_in.*
-import kotlinx.android.synthetic.main.fragment_book.*
 import kotlinx.android.synthetic.main.fragment_book.loading
 import org.koin.android.viewmodel.ext.android.viewModel
 

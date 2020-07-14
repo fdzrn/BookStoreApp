@@ -21,7 +21,7 @@ import com.bookstore.client.utils.ViewHelper.hideKeyBoard
 import com.bookstore.client.utils.ViewHelper.show
 import com.bookstore.client.utils.ViewHelper.showKeyBoard
 import com.bookstore.constant.CartStatus
-import com.bookstore.constant.RetrofitStatus
+import com.bookstore.client.constant.RetrofitStatus
 import com.bookstore.client.model.response.cart.CartDetail
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_book.button_search
@@ -80,7 +80,7 @@ class CartFragment : Fragment(), CartItemListener {
                     Snackbar.make(
                         parent_layout,
                         "Error occurred when removing your cart item",
-                        Snackbar.LENGTH_SHORT
+                        Snackbar.LENGTH_LONG
                     ).show()
                 }
             }

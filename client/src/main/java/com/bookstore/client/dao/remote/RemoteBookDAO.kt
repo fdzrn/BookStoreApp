@@ -12,7 +12,7 @@ interface RemoteBookDAO {
     @GET("/api/rest/book/findAll")
     suspend fun getBook(@Header("Authorization") authorization: String) : List<Book>
 
-    @GET("/api/rest/favourite-book/findAll/findByUserId/${AppConfig.OAUTH_DEFAULT_CLIENT_ID}")
+    @GET("/api/rest/favourite-book/findByUserId/${AppConfig.OAUTH_DEFAULT_CUSTOMER_ID}")
     suspend fun getFavouriteBook(@Header("Authorization") authorization: String) : FavouriteBook
 
     @POST("/api/rest/favourite-book/saveOrUpdate")
@@ -24,6 +24,6 @@ interface RemoteBookDAO {
     @DELETE("/api/rest/favourite-book/deleteByFavouriteBookDetailId/{detail_id}")
     suspend fun removeBookFromFavourite(
         @Header("Authorization") authorization: String,
-        @Path("detail_id") detaildId: Int
+        @Path("detail_id") detailId: Int
     ) : Response<ResponseBody>
 }

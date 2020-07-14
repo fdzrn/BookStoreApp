@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.bookstore.client.model.formatted.book.FavouriteBookResponse
 import com.bookstore.client.repository.BookRepository
 import com.bookstore.client.utils.Retrofit.printRetrofitError
-import com.bookstore.constant.RetrofitStatus
+import com.bookstore.client.constant.RetrofitStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException

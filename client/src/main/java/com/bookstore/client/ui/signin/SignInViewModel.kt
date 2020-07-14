@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.bookstore.client.repository.UserRepository
 import com.bookstore.client.utils.Retrofit.printRetrofitError
-import com.bookstore.constant.RetrofitStatus
+import com.bookstore.client.constant.RetrofitStatus
 import com.bookstore.model.formatted.user.SignInResponse
 import com.bookstore.model.request.user.AccessTokenRequest
 import kotlinx.coroutines.Dispatchers

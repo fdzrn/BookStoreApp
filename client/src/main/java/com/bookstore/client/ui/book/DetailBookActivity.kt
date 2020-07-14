@@ -11,7 +11,7 @@ import com.bookstore.R
 import com.bookstore.client.model.response.book.Book
 import com.bookstore.client.ui.checkout.CheckoutActivity
 import com.bookstore.client.ui.main.MainViewModel
-import com.bookstore.constant.RetrofitStatus
+import com.bookstore.client.constant.RetrofitStatus
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -118,7 +118,7 @@ class DetailBookActivity : AppCompatActivity() {
                     when (it.status) {
                         RetrofitStatus.SUCCESS -> refreshAddToFavouriteButtonIcon()
                         RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(this)
-                        else -> showSnackbar("Error accurred when getting your favourite book data")
+                        else -> showSnackbar("Error occurred when getting your favourite book data")
                     }
                 })
                 detailBookViewModel.addFavouriteBookResponse.observe(this, Observer {
@@ -142,7 +142,7 @@ class DetailBookActivity : AppCompatActivity() {
                             showSnackbar("This book has been removed from your favourite")
                         }
                         RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(this)
-                        else -> showSnackbar("Error accurred when removing book from your favourite")
+                        else -> showSnackbar("Error occurred when removing book from your favourite")
                     }
                 })
                 setContent(book)
@@ -222,6 +222,9 @@ class DetailBookActivity : AppCompatActivity() {
         button_add_to_cart_footer.setOnClickListener {
             performProceedToCheckout(book)
         }
+        button_proceed_to_checkout_footer.setOnClickListener {
+            performProceedToCheckout(book)
+        }
         button_favourite.setOnClickListener {
             performAddOrRemoveFavourite(book)
         }
@@ -278,5 +281,5 @@ class DetailBookActivity : AppCompatActivity() {
         else detailBookViewModel.addBookToFavourite(book.id)
     }
 
-    private fun showSnackbar(msg: String) = Snackbar.make(parent_layout, msg, Snackbar.LENGTH_SHORT).show()
+    private fun showSnackbar(msg: String) = Snackbar.make(parent_layout, msg, Snackbar.LENGTH_LONG).show()
 }

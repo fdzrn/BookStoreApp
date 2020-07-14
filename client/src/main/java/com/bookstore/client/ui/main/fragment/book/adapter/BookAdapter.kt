@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bookstore.R
-import com.bookstore.constant.BookStatus
+import com.bookstore.client.constant.BookStatus
 import com.bookstore.client.model.response.book.Book
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy

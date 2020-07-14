@@ -13,7 +13,7 @@ import com.bookstore.R
 import com.bookstore.client.ui.book.DetailBookActivity
 import com.bookstore.client.ui.checkout.CheckoutViewModel
 import com.bookstore.client.ui.checkout.fragment.payment.adapter.PaymentAdapter
-import com.bookstore.constant.RetrofitStatus
+import com.bookstore.client.constant.RetrofitStatus
 import com.bookstore.model.response.transaction.Transaction
 import com.bookstore.model.response.transaction.TransactionDetail
 import com.google.android.material.snackbar.Snackbar

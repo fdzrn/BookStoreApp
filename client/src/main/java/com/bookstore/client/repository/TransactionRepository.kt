@@ -11,7 +11,7 @@ class TransactionRepository(private val userRepository: UserRepository,private v
 
     suspend fun performCheckout(checkoutRequest: CheckoutRequest) : Transaction =
         userRepository.checkSession().let {
-            if (it != null) return transactionDAO.perfomeCheckout(it.asBearer(), checkoutRequest)
+            if (it != null) return transactionDAO.performCheckout(it.asBearer(), checkoutRequest)
             else throw SessionHelper.unauthorizaedException
         }
 

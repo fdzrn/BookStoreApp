@@ -10,7 +10,7 @@ import com.bookstore.client.ui.checkout.fragment.checkout.CheckoutFragment
 import com.bookstore.client.ui.checkout.fragment.payment.PaymentFragment
 import com.bookstore.client.ui.checkout.fragment.payment_success.PaymentSuccessFragment
 import com.bookstore.client.ui.main.MainViewModel
-import com.bookstore.constant.RetrofitStatus
+import com.bookstore.client.constant.RetrofitStatus
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_checkout.*
 import org.koin.android.viewmodel.ext.android.viewModel

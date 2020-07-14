@@ -16,8 +16,8 @@ import com.bookstore.client.utils.ViewHelper.hide
 import com.bookstore.client.utils.ViewHelper.hideKeyBoard
 import com.bookstore.client.utils.ViewHelper.show
 import com.bookstore.client.utils.ViewHelper.showKeyBoard
-import com.bookstore.constant.BookStatus
-import com.bookstore.constant.RetrofitStatus
+import com.bookstore.client.constant.BookStatus
+import com.bookstore.client.constant.RetrofitStatus
 import kotlinx.android.synthetic.main.activity_wishlist.*
 import org.koin.android.viewmodel.ext.android.viewModel
 

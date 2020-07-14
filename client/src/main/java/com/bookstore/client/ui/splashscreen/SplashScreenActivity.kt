@@ -23,5 +23,6 @@ class SplashScreenActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        splashScreenViewModel.checkSession()
     }
 }

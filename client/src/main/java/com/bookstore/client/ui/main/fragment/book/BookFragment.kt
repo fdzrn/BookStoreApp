@@ -15,7 +15,7 @@ import com.bookstore.client.ui.main.fragment.book.adapter.BookItemListener
 import com.bookstore.client.ui.search.SearchBookActivity
 import com.bookstore.client.utils.ViewHelper.hide
 import com.bookstore.client.utils.ViewHelper.show
-import com.bookstore.constant.RetrofitStatus
+import com.bookstore.client.constant.RetrofitStatus
 import com.bookstore.client.model.response.book.Book
 import com.bookstore.client.ui.book.DetailBookActivity
 import kotlinx.android.synthetic.main.fragment_book.*

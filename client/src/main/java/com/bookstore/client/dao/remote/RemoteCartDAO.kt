@@ -17,7 +17,7 @@ interface RemoteCartDAO {
         @Body cartRequest: CartRequest
     ): Response<ResponseBody>
 
-    @DELETE("/api/rest/cart/deleteByCartDetailId/{detaild_id}")
+    @DELETE("/api/rest/cart/deleteByCartDetailId/{detail_id}")
     suspend fun removeBookFromCart(
         @Header("Authorization") authorization: String,
         @Path("detail_id") detailId: Int

@@ -2,7 +2,7 @@ package com.bookstore.client.config
 
 object AppConfig {
     const val CILSY_SEKOLAH_MOBILE_WEB_URL = "https://sekolahmobile.com"
-    const val API_BASE_URL = "https://obstro.herokuapp.com"
+    const val API_BASE_URL = "https://obstore.herokuapp.com"
     const val RETROFIT_TIMEOUT = 25L
 
     const val OAUTH_DEFAULT_CLIENT_ID = "obstore-client-id"
