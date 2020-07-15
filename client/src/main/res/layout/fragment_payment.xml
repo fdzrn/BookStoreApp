@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -141,9 +140,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_title_invoice_detail">
 
-                    <TableRow
-                        android:layout_marginBottom="@dimen/activity_padding_half"
-                        tools:ignore="UselessParent">
+                    <TableRow android:layout_marginBottom="@dimen/activity_padding_half">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -185,7 +182,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/rubik_medium"
                             android:includeFontPadding="false"
-                            android:text="@string/text_invoice_items"
+                            android:text="@string/text_created_on"
                             android:textColor="@android:color/black"
                             android:textSize="16sp" />
 
@@ -233,6 +230,19 @@
                             android:text="@string/text_equal"
                             android:textColor="@android:color/black"
                             android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/text_invoice_items"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_padding_half"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/rubik"
+                            android:includeFontPadding="false"
+                            android:text="@string/text_empty"
+                            android:textColor="@android:color/black"
+                            android:textIsSelectable="true"
+                            android:textSize="16sp" />
                     </TableRow>
                 </TableLayout>
 
@@ -275,7 +285,7 @@
             android:textColor="@android:color/black"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@id/button_pay"
-            app:layout_constraintEnd_toStartOf="@id/text_title_total_price"
+            app:layout_constraintEnd_toStartOf="@id/text_total_price"
             app:layout_constraintStart_toStartOf="@id/button_pay"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -291,6 +301,7 @@
             app:layout_constraintBottom_toBottomOf="@id/text_title_total_price"
             app:layout_constraintEnd_toEndOf="@id/button_pay"
             app:layout_constraintTop_toTopOf="@id/text_title_total_price" />
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_pay"

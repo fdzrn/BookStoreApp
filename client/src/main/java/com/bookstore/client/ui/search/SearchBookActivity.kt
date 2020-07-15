@@ -134,5 +134,6 @@ class SearchBookActivity : AppCompatActivity(), SearchBookItemListener {
             card_filter_info.show()
         }
     }
-    private fun showFilterDialog() = SearchBookFilterDialog(this,filterByTypes).show(supportFragmentManager, SearchBookFilterDialog.TAG)
+    private fun showFilterDialog() =
+        SearchBookFilterDialog(this,filterByTypes).show(supportFragmentManager, SearchBookFilterDialog.TAG)
 }

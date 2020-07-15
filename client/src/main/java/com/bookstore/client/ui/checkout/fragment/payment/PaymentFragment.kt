@@ -58,6 +58,7 @@ class PaymentFragment: Fragment(), PaymentItemListener {
         if (this::transaction.isInitialized) {
             text_invoice_number.text = transaction.invoiceNumber
             text_invoice_date.text = transaction.createdTime
+            text_invoice_items.text = transaction.id.toString()
             text_total_price.text = getString(
                 R.string.text_item_cart_book_price, transaction.details.map { it.price.toLong() }.sum()
             )
