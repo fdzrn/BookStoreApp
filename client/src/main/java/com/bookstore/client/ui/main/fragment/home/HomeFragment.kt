@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.bookstore.R
 import com.bookstore.client.ui.search.SearchBookActivity
 import com.bookstore.client.constant.BookType
+import com.bookstore.client.ui.settings.SettingsActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment: Fragment() {
@@ -20,8 +21,9 @@ class HomeFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        search_bar.setOnClickListener {
-            startActivity(Intent(requireContext(), SearchBookActivity::class.java))
+        search_bar.setOnClickListener { startActivity(Intent(requireContext(), SearchBookActivity::class.java)) }
+        button_settings.setOnClickListener {
+            startActivity(Intent(requireContext(), SettingsActivity::class.java))
         }
         button_category_fiction.setOnClickListener{
             openSearchActivityByType(BookType.FICTION)

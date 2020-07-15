@@ -23,7 +23,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.stfalcon.imageviewer.StfalconImageViewer
 import kotlinx.android.synthetic.main.activity_book_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
-import java.lang.IllegalArgumentException
 
 class DetailBookActivity : AppCompatActivity() {
     companion object {
@@ -220,7 +219,7 @@ class DetailBookActivity : AppCompatActivity() {
             performAddOrRemoveCart(book)
         }
         button_add_to_cart_footer.setOnClickListener {
-            performProceedToCheckout(book)
+            performAddOrRemoveCart(book)
         }
         button_proceed_to_checkout_footer.setOnClickListener {
             performProceedToCheckout(book)
@@ -257,7 +256,7 @@ class DetailBookActivity : AppCompatActivity() {
         button_add_to_cart.isEnabled = false
         button_add_to_cart_footer.isEnabled = false
         button_proceed_to_checkout_footer.isEnabled = false
-        if (detailBookViewModel.cartAdded) detailBookViewModel.removeBookFromcart(book.id)
+        if (detailBookViewModel.cartAdded) detailBookViewModel.removeBookFromCart(book.id)
         else detailBookViewModel.addBookToCart(book.id)
     }
 

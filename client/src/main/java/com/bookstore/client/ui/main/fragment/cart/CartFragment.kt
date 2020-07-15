@@ -48,7 +48,7 @@ class CartFragment : Fragment(), CartItemListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         cartViewModel.cartResponse.observe(viewLifecycleOwner, Observer { cart ->
-            swipe_refresh_layout.isRefreshing = true
+            swipe_refresh_layout.isRefreshing = false
             loading.hide()
             when (cart.status) {
                 RetrofitStatus.SUCCESS -> cart.cart?.details?.let { list ->
@@ -67,7 +67,7 @@ class CartFragment : Fragment(), CartItemListener {
                 }
             }
         })
-        cartViewModel.cartResponse.observe(viewLifecycleOwner, Observer {
+        cartViewModel.removeCartResponse.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 RetrofitStatus.SUCCESS -> Log.d(
                     this::class.java.simpleName,
@@ -110,6 +110,8 @@ class CartFragment : Fragment(), CartItemListener {
             layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
         }
+        button_search.isEnabled = false
+        hideSearchBar()
     }
 
     override fun onResume() {

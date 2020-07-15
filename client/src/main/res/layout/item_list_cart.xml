@@ -44,7 +44,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/text_size_item_list_cart_name"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/button_remove"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView

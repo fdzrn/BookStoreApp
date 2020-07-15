@@ -40,7 +40,7 @@ class SearchBookFilterDialog (
             val filterByTypes = mutableListOf<BookType>()
             if(checkbox_fiction.isChecked) filterByTypes.add(BookType.FICTION)
             if(checkbox_art.isChecked) filterByTypes.add(BookType.ART)
-            if(checkbox_history.isChecked) filterByTypes.add(BookType.HORROR)
+            if(checkbox_history.isChecked) filterByTypes.add(BookType.HISTORY)
             if(checkbox_non_fiction.isChecked) filterByTypes.add(BookType.NON_FICTION)
             if(checkbox_psychology.isChecked) filterByTypes.add(BookType.PSYCHOLOGY)
             if(checkbox_romance.isChecked) filterByTypes.add(BookType.ROMANCE)

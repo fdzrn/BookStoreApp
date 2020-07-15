@@ -25,6 +25,7 @@ class DetailBookViewModel(
     private val cartRepository: CartRepository,
     private val bookRepository: BookRepository
 ) : AndroidViewModel(application) {
+
     var currentBook: Book? = null
 
     private val _cartResponse = MutableLiveData<CartResponse>()
@@ -35,7 +36,8 @@ class DetailBookViewModel(
         try {
             val result = cartRepository.getCart()
             result.details.firstOrNull { it.bookModel.id == bookId }?.let {
-                if (it.cartDetailStatus == CartStatus.CARTED.toString()) cartAdded = true
+//                if (it.cartDetailStatus == CartStatus.CARTED.toString()) cartAdded = true
+                cartAdded = it.cartDetailStatus == CartStatus.CARTED.toString()
             }
             _cartResponse.postValue(CartResponse(RetrofitStatus.SUCCESS, result))
         } catch (throwable: Throwable) {
@@ -74,7 +76,7 @@ class DetailBookViewModel(
     private val _removeCartResponse = MutableLiveData<CartResponse>()
     val removeCartResponse: LiveData<CartResponse> = _removeCartResponse
 
-    fun removeBookFromcart(bookId: Int) = viewModelScope.launch(Dispatchers.IO) {
+    fun removeBookFromCart(bookId: Int) = viewModelScope.launch(Dispatchers.IO) {
         try {
             val cart = cartRepository.getCart()
             cart.details.firstOrNull { it.bookModel.id == bookId }?.id.let { detailId ->
@@ -109,7 +111,7 @@ class DetailBookViewModel(
             val cartRequest = CartRequest(bookId)
             val result = cartRepository.addBookToCart(cartRequest)
             if (result.isSuccessful) {
-                cartAdded = true
+//                cartAdded = true
                 _proceedToCheckoutResponse.postValue(CartResponse(RetrofitStatus.SUCCESS))
             } else {
                 _proceedToCheckoutResponse.postValue(CartResponse(RetrofitStatus.FAILURE))
