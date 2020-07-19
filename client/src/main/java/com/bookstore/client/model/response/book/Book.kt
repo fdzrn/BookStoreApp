@@ -1,7 +1,6 @@
 package com.bookstore.client.model.response.book
 
 import android.os.Parcelable
-import com.bookstore.model.response.book.BookCategory
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

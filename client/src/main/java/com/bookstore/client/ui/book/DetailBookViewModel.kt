@@ -9,10 +9,10 @@ import androidx.lifecycle.viewModelScope
 import com.bookstore.client.repository.BookRepository
 import com.bookstore.client.repository.CartRepository
 import com.bookstore.client.utils.Retrofit.printRetrofitError
-import com.bookstore.constant.CartStatus
+import com.bookstore.client.constant.CartStatus
 import com.bookstore.client.constant.RetrofitStatus
 import com.bookstore.client.model.formatted.book.FavouriteBookResponse
-import com.bookstore.model.formatted.cart.CartResponse
+import com.bookstore.client.model.formatted.cart.CartResponse
 import com.bookstore.client.model.request.book.FavouriteBookRequest
 import com.bookstore.client.model.request.cart.CartRequest
 import com.bookstore.client.model.response.book.Book

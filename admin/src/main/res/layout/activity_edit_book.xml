@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
-    tools:context="com.bookstore.admin.ui.book.edit.EditBookActivity">
+    tools:context="com.bookstore.admin.view.book.edit.EditBookActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"

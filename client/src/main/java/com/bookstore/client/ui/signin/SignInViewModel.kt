@@ -8,8 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.bookstore.client.repository.UserRepository
 import com.bookstore.client.utils.Retrofit.printRetrofitError
 import com.bookstore.client.constant.RetrofitStatus
-import com.bookstore.model.formatted.user.SignInResponse
-import com.bookstore.model.request.user.AccessTokenRequest
+import com.bookstore.client.model.formatted.user.SignInResponse
+import com.bookstore.client.model.request.user.AccessTokenRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

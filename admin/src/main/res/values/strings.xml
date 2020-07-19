@@ -76,6 +76,4 @@
     <string name="text_buyer_name">Name</string>
     <string name="text_buyer_email">Email</string>
     <string name="text_title_items_activity_purchase_detail">Items</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

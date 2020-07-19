@@ -1,4 +1,4 @@
-package com.bookstore.model.request.transaction
+package com.bookstore.client.model.request.transaction
 
 data class PaymentRequest(
     val transactionId: Int,

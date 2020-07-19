@@ -1,4 +1,4 @@
-package com.bookstore.model.request.user
+package com.bookstore.client.model.request.user
 
 import com.bookstore.client.config.AppConfig.OAUTH_DEFAULT_GRANT_TYPE
 import com.bookstore.client.config.AppConfig.OAUTH_DEFAULT_SCOPE

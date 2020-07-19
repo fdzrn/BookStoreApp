@@ -5,7 +5,7 @@ import com.bookstore.client.utils.SessionHelper
 import com.bookstore.client.utils.SessionHelper.asBearer
 import com.bookstore.client.model.request.book.FavouriteBookRequest
 import com.bookstore.client.model.response.book.Book
-import com.bookstore.model.response.book.FavouriteBook
+import com.bookstore.client.model.response.book.FavouriteBook
 import okhttp3.ResponseBody
 import retrofit2.Response
 

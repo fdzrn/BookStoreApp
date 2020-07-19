@@ -2,7 +2,7 @@ package com.bookstore.client.repository
 
 import com.bookstore.client.dao.local.LocalUserDAO
 import com.bookstore.client.dao.remote.RemoteUserDAO
-import com.bookstore.model.request.user.AccessTokenRequest
+import com.bookstore.client.model.request.user.AccessTokenRequest
 import com.bookstore.model.response.user.AccessToken
 
 class UserRepository(

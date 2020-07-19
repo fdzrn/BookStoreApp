@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.bookstore.client.ui.main.MainActivity
 import com.bookstore.client.ui.signin.SignInActivity
-import com.bookstore.constant.SessionStatus
+import com.bookstore.client.constant.SessionStatus
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class SplashScreenActivity : AppCompatActivity() {

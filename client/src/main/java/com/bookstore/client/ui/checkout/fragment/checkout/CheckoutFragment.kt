@@ -17,7 +17,7 @@ import com.bookstore.client.ui.checkout.fragment.checkout.adapter.CheckoutAdapte
 import com.bookstore.client.ui.checkout.fragment.checkout.adapter.CheckoutItemListener
 import com.bookstore.client.utils.ViewHelper.hide
 import com.bookstore.client.utils.ViewHelper.show
-import com.bookstore.constant.CartStatus
+import com.bookstore.client.constant.CartStatus
 import com.bookstore.client.constant.RetrofitStatus
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_checkout.*

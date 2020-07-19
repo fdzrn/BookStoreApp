@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".ui.splashscreen.SplashScreenActivity"
+            android:name=".view.splashscreen.SplashScreenActivity"
             android:theme="@style/AppTheme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,18 +26,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.signin.SigninActivity"
+            android:name=".view.signin.SigninActivity"
             android:theme="@style/AppTheme.SignIn" />
         <activity
-            android:name=".ui.book.add.AddBookActivity"
+            android:name=".view.book.add.AddBookActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".ui.book.edit.EditBookActivity"
+            android:name=".view.book.edit.EditBookActivity"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".ui.book.detail.DetailBookActivity" />
-        <activity android:name=".ui.main.MainActivity" />
-        <activity android:name=".ui.settings.SettingsActivity" />
-        <activity android:name=".ui.purchase.DetailPurchaseActivity" />
+        <activity android:name=".view.book.detail.DetailBookActivity" />
+        <activity android:name=".view.main.MainActivity" />
+        <activity android:name=".view.settings.SettingsActivity" />
+        <activity android:name=".view.purchase.DetailPurchaseActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

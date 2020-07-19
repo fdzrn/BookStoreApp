@@ -9,7 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.bookstore.client.repository.UserRepository
 import com.bookstore.client.ui.signin.SignInActivity
-import com.bookstore.constant.SessionStatus
+import com.bookstore.client.constant.SessionStatus
 import com.bookstore.client.model.formatted.user.SessionResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

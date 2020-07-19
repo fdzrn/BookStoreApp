@@ -1,4 +1,4 @@
-package com.bookstore.model.formatted.user
+package com.bookstore.client.model.formatted.user
 
 import com.bookstore.client.constant.RetrofitStatus
 

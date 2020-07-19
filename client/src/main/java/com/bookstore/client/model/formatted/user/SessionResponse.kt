@@ -1,6 +1,6 @@
 package com.bookstore.client.model.formatted.user
 
-import com.bookstore.constant.SessionStatus
+import com.bookstore.client.constant.SessionStatus
 import com.bookstore.model.response.user.AccessToken
 
 data class SessionResponse(
