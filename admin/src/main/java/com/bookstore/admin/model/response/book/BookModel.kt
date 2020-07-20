@@ -18,7 +18,7 @@ data class BookModel(
     val publicationDate: String,
     val synopsis: String,
     val title: String,
-    val updatedBy: String,
+    val updatedBy: String?,
     val updatedTime: String
 ): Parcelable
 
