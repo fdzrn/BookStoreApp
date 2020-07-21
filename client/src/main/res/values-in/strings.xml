@@ -77,4 +77,12 @@ dengan tujuan pembelajaran di Cilsy Sekolah Mobile Course 3.</string>
     <string name="dialog_cancel_payment">Kamu yakin untuk membatalkan pembayaran? Keranjang belanjamu saat ini akan dihapus</string>
     <string name="button_yes">Ya</string>
     <string name="button_cancel">Batal</string>
+    <string name="text_card_checkout">Lanjutkan ke Pembayaran</string>
+    <string name="text_title_trending_home"> Trending Saat ini</string>
+    <string name="purchase_history">Riwayat Pembelian</string>
+    <string name="text_invoice_warning">Segera bayar tagihan ada sebelum faktur kadaluarsa</string>
+    <string name="text_placeholder_error_server">Saat ini terjadi kesalahan pada server kami, coba lagi nanti.</string>
+
+
+
 </resources>

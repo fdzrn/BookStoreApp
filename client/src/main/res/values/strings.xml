@@ -4,9 +4,9 @@
     <string name="title_book">Books</string>
     <string name="title_cart">Cart</string>
     <string name="title_profile">Profile</string>
-    <string name="text_search_hint_fragment_home">Search a popular books...</string>
-    <string name="text_search_hint_fragment_cart">Search any book in your cart...</string>
-    <string name="text_search_hint_activity_wishlist">Search your wishlisted books...</string>
+    <string name="text_search_hint_fragment_home">Search a popular books…</string>
+    <string name="text_search_hint_fragment_cart">Search any book in your cart…</string>
+    <string name="text_search_hint_activity_wishlist">Search your wishlisted books…</string>
     <string name="text_title_book_fragment">Book List</string>
     <string name="text_title_cart_fragment">Cart</string>
     <string name="text_title_profile_fragment">My Profile</string>
@@ -80,8 +80,5 @@
     <string name="dialog_cancel_payment">Are you sure want to cancel your payment?. Your current cart will be discarded.</string>
     <string name="button_yes">Yes</string>
     <string name="button_cancel">Cancel</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="purchase_history">Purchase History</string>
     <string name="purchase_history">Purchase History</string>
 </resources>

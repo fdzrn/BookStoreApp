@@ -16,9 +16,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup"
         tools:targetApi="n">
-        <activity android:name=".client.ui.purchase_history.PurchaseHistoryActivity" />
+        <activity android:name=".client.view.purchase_history.PurchaseHistoryActivity" />
         <activity
-            android:name=".client.ui.splashscreen.SplashScreenActivity"
+            android:name=".client.view.splashscreen.SplashScreenActivity"
             android:theme="@style/AppTheme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,14 +27,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".client.ui.signin.SignInActivity"
+            android:name=".client.view.signin.SignInActivity"
             android:theme="@style/AppTheme.SignIn" />
-        <activity android:name=".client.ui.main.MainActivity" />
-        <activity android:name=".client.ui.search.SearchBookActivity" />
-        <activity android:name=".client.ui.book.DetailBookActivity" />
-        <activity android:name=".client.ui.wishlist.WishlistActivity" />
-        <activity android:name=".client.ui.settings.SettingsActivity" />
-        <activity android:name=".client.ui.checkout.CheckoutActivity" />
+        <activity android:name=".client.view.main.MainActivity" />
+        <activity android:name=".client.view.search.SearchBookActivity" />
+        <activity android:name=".client.view.book.DetailBookActivity" />
+        <activity android:name=".client.view.wishlist.WishlistActivity" />
+        <activity android:name=".client.view.settings.SettingsActivity" />
+        <activity android:name=".client.view.checkout.CheckoutActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

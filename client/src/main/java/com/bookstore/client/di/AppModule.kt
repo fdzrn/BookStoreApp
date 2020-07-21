@@ -6,15 +6,15 @@ import com.bookstore.client.repository.BookRepository
 import com.bookstore.client.repository.CartRepository
 import com.bookstore.client.repository.TransactionRepository
 import com.bookstore.client.repository.UserRepository
-import com.bookstore.client.ui.book.DetailBookViewModel
-import com.bookstore.client.ui.checkout.CheckoutViewModel
-import com.bookstore.client.ui.main.MainViewModel
-import com.bookstore.client.ui.main.fragment.book.BookViewModel
-import com.bookstore.client.ui.main.fragment.cart.CardViewModel
-import com.bookstore.client.ui.search.SearchBookViewModel
-import com.bookstore.client.ui.signin.SignInViewModel
-import com.bookstore.client.ui.splashscreen.SplashScreenViewModel
-import com.bookstore.client.ui.wishlist.WishlistViewModel
+import com.bookstore.client.view.book.DetailBookViewModel
+import com.bookstore.client.view.checkout.CheckoutViewModel
+import com.bookstore.client.view.main.MainViewModel
+import com.bookstore.client.view.main.fragment.book.BookViewModel
+import com.bookstore.client.view.main.fragment.cart.CardViewModel
+import com.bookstore.client.view.search.SearchBookViewModel
+import com.bookstore.client.view.signin.SignInViewModel
+import com.bookstore.client.view.splashscreen.SplashScreenViewModel
+import com.bookstore.client.view.wishlist.WishlistViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
