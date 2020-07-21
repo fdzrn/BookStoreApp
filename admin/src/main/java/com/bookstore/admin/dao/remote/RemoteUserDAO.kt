@@ -9,7 +9,7 @@ interface RemoteUserDAO {
 
     @FormUrlEncoded
     @POST("/oauth/token")
-    suspend fun getAccessToken(
+    suspend fun getAccessTokenFromRemote(
         @Field("grant_type") grantType: String,
         @Field("scope") scope: String,
         @Field("username") username: String,

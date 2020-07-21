@@ -42,7 +42,7 @@
                 android:textColor="@android:color/white"
                 android:includeFontPadding="false"
                 android:textSize="@dimen/text_size_app_bar"
-                android:text="Purchase History"
+                android:text="@string/purchase_history"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@id/button_back"
                 app:layout_constraintBottom_toBottomOf="parent" />

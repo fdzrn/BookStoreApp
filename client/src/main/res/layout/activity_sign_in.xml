@@ -80,4 +80,3 @@
     </LinearLayout>
 </FrameLayout>
 
-<!--Baris 10 asalnya progresbar tapi kalau di run menyebabkan force close, jadi di rubah ke framelayout-->
