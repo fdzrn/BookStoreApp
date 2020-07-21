@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".view.splashscreen.SplashScreenActivity"
+            android:name=".view.splash_screen.SplashActivity"
             android:theme="@style/AppTheme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.signin.SigninActivity"
+            android:name=".view.signin.SignInActivity"
             android:theme="@style/AppTheme.SignIn" />
         <activity
             android:name=".view.book.add.AddBookActivity"
