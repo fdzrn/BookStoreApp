@@ -24,8 +24,8 @@ class MainViewModel(
     val sessionResponse: LiveData<SessionResponse> = _sessionResponse
 
     fun checkSession() = viewModelScope.launch(Dispatchers.IO) {
-        userRepository.checkAccessToken().let{
-            if(it != null) _sessionResponse.postValue(SessionResponse(SessionStatus.AVAILABLE, it))
+        userRepository.checkAccessToken().run {
+            if(this != null) _sessionResponse.postValue(SessionResponse(SessionStatus.AVAILABLE, this))
             else _sessionResponse.postValue(SessionResponse(SessionStatus.UNAVAILABLE))
         }
     }
@@ -34,7 +34,7 @@ class MainViewModel(
         userRepository.checkAccessToken()?.let{
             userRepository.deleteAccessToken(it)
         }
-        currentActivity.run{
+        currentActivity.run {
             startActivity(Intent(this, SignInActivity::class.java))
             finishAffinity()
         }

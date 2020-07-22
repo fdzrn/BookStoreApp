@@ -1,4 +1,4 @@
-package com.bookstore.client.view.main.fragment.profile
+package com.bookstore.admin.view.main.fragment.profile
 
 import android.content.Intent
 import android.net.Uri
@@ -6,15 +6,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bookstore.BuildConfig
-import com.bookstore.R
-import com.bookstore.client.config.AppConfig
+import com.bookstore.admin.BuildConfig
+import com.bookstore.admin.R
+import com.bookstore.admin.config.AppConfig
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.dialog_about_application.*
 
 class AboutApplicationDialog : BottomSheetDialogFragment() {
     companion object {
-        const val TAG = "AboutApplicationDialog"
+        const val TAG = "AboutApplicationDialogAdmin"
     }
 
     override fun onCreateView(
