@@ -34,7 +34,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class CartFragment : Fragment(), CartItemListener {
 
     private val mainViewModel: MainViewModel by sharedViewModel()
-    private val cartViewModel: CardViewModel by viewModel()
+    private val cartViewModel: CartViewModel by viewModel()
     private val cartAdapter by lazy {
         CartAdapter(this)
     }

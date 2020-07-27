@@ -15,7 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
-class CardViewModel(application: Application, private val cartRepository: CartRepository) :
+class CartViewModel(application: Application, private val cartRepository: CartRepository) :
     AndroidViewModel(application) {
     private val _cartResponse = MutableLiveData<CartResponse>()
     val cartResponse: LiveData<CartResponse> = _cartResponse

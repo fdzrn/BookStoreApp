@@ -57,7 +57,7 @@ class HomeFragment : Fragment() {
         swipe_refresh_layout.setOnRefreshListener {
             homeViewModel.getBookCount()
         }
-        swipe_refresh_layout.isRefreshing = true
+        swipe_refresh_layout.isRefreshing = false
     }
 
     override fun onResume() {

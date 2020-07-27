@@ -14,8 +14,8 @@ import com.bookstore.client.view.book.DetailBookActivity
 import com.bookstore.client.view.checkout.CheckoutViewModel
 import com.bookstore.client.view.checkout.fragment.payment.adapter.PaymentAdapter
 import com.bookstore.client.constant.RetrofitStatus
-import com.bookstore.model.response.transaction.Transaction
-import com.bookstore.model.response.transaction.TransactionDetail
+import com.bookstore.client.model.response.transaction.Transaction
+import com.bookstore.client.model.response.transaction.TransactionDetail
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_payment.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel

@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home_black"
+        android:title="@string/title_home"/>
+    <item
+        android:id="@+id/bookFragment"
+        android:icon="@drawable/ic_book_black"
+        android:title="@string/title_book"/>
+    <item
+        android:id="@+id/bookCategoryFragment"
+        android:icon="@drawable/ic_category_black"
+        android:title="@string/title_book_category"/>
+    <item
+        android:id="@+id/purchaseFragment"
+        android:icon="@drawable/ic_payment_black"
+        android:title="@string/title_purchase"/>
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_person_black"
+        android:title="@string/title_profile"/>
 </menu>

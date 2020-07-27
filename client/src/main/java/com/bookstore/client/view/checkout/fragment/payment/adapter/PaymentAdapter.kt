@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bookstore.R
 import com.bookstore.client.view.checkout.fragment.payment.PaymentItemListener
-import com.bookstore.model.response.transaction.TransactionDetail
+import com.bookstore.client.model.response.transaction.TransactionDetail
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions

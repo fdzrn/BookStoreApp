@@ -1,4 +1,4 @@
-package com.bookstore.model.response.transaction
+package com.bookstore.client.model.response.transaction
 
 import android.os.Parcelable
 import com.bookstore.client.model.response.book.Book

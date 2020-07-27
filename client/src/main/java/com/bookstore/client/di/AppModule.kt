@@ -10,7 +10,8 @@ import com.bookstore.client.view.book.DetailBookViewModel
 import com.bookstore.client.view.checkout.CheckoutViewModel
 import com.bookstore.client.view.main.MainViewModel
 import com.bookstore.client.view.main.fragment.book.BookViewModel
-import com.bookstore.client.view.main.fragment.cart.CardViewModel
+import com.bookstore.client.view.main.fragment.cart.CartViewModel
+import com.bookstore.client.view.purchase_history.PurchaseHistoryViewModel
 import com.bookstore.client.view.search.SearchBookViewModel
 import com.bookstore.client.view.signin.SignInViewModel
 import com.bookstore.client.view.splashscreen.SplashScreenViewModel
@@ -37,9 +38,10 @@ val appModule = module {
     viewModel { SignInViewModel(get(), get()) }
     viewModel { MainViewModel(get(), get()) }
     viewModel { BookViewModel(get(), get()) }
-    viewModel { CardViewModel(get(), get()) }
+    viewModel { CartViewModel(get(), get()) }
     viewModel { DetailBookViewModel(get(), get(), get()) }
     viewModel { SearchBookViewModel(get(), get()) }
     viewModel { WishlistViewModel(get(), get()) }
     viewModel { CheckoutViewModel(get(), get(), get()) }
+    viewModel { PurchaseHistoryViewModel(get(),get()) }
 }
