@@ -95,7 +95,7 @@ class BookFragment : Fragment(), BookItemListener {
     }
 
     override fun onItemSearch(empty: Boolean) {
-        if (empty&& !placeholder_empty.isShown) placeholder_empty.show()
+        if (empty && !placeholder_empty.isShown) placeholder_empty.show()
         else placeholder_empty.hide()
     }
 
@@ -125,11 +125,16 @@ class BookFragment : Fragment(), BookItemListener {
     }
 
     private fun hideSearchBar() {
-        text_title_fragment_book.hide()
-        button_search.hide()
-        button_add.hide()
-        button_clear_search.show()
-        input_search.showKeyboard()
+        placeholder_empty.hide()
+        input_search.hide()
+        button_clear_search.hide()
+        text_title_fragment_book.show()
+        button_search.show()
+        button_add.show()
+        input_search.apply {
+            text.clear()
+            hideKeyboard()
+        }
         onItemDraw(bookAdapter.getData())
     }
 }

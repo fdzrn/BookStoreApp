@@ -37,7 +37,7 @@
         <activity android:name=".view.book.detail.DetailBookActivity" />
         <activity android:name=".view.main.MainActivity" />
         <activity android:name=".view.settings.SettingsActivity" />
-        <activity android:name=".view.purchase.DetailPurchaseActivity" />
+        <activity android:name=".view.purchase_detail.DetailPurchaseActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

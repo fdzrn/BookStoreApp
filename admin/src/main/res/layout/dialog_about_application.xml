@@ -18,9 +18,15 @@
         android:gravity="center"
         android:drawableStart="@drawable/ic_info_outline_black"
         android:drawablePadding="8dp"/>
-
     <TextView
-        android:id="@+id/text_about_description_app"
+        android:id="@+id/text_app_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_padding"
+        android:fontFamily="@font/rubik_light"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_about_application_description"
@@ -29,7 +35,6 @@
         android:textStyle="bold"
         android:padding="12dp"
         android:textColor="@android:color/black"/>
-
     <Button
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:id="@+id/button_website"

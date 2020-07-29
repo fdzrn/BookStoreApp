@@ -1,4 +1,4 @@
-package com.bookstore.admin.view.main.fragment.purchase
+package com.bookstore.admin.view.main.fragment.purchase_history
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_book_category" />
     <fragment
         android:id="@+id/purchaseFragment"
-        android:name="com.bookstore.admin.view.main.fragment.purchase.PurchaseFragment"
+        android:name="com.bookstore.admin.view.main.fragment.purchase_history.PurchaseFragment"
         android:label="fragment_purchase"
         tools:layout="@layout/fragment_purchase" />
     <fragment

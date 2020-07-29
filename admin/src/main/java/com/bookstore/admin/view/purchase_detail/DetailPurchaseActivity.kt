@@ -1,4 +1,4 @@
-package com.bookstore.admin.view.purchase
+package com.bookstore.admin.view.purchase_detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

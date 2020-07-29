@@ -25,7 +25,7 @@ class AboutApplicationDialog : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        text_about_description_app.text = getString(R.string.text_about_application_version, BuildConfig.VERSION_NAME)
+        text_app_version.text = getString(R.string.text_about_application_version, BuildConfig.VERSION_NAME)
         button_website.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(AppConfig.CILSY_SEKOLAH_MOBILE_WEB_URL)))
         }

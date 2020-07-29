@@ -109,8 +109,9 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
        }
     }
 
+
     override fun onItemClick(bookCategories: BookCategory) {
-        EditBookCategoryDialog
+        EditBookCategoryDialog().show(requireActivity().supportFragmentManager, EditBookCategoryDialog.TAG)
     }
 
     private fun hideSearchBar() {

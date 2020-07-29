@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Book Store Admin</string>
     <string name="title_home">Home</string>
-    <string name="title_book">Books</string>
     <string name="title_book_category">Categories</string>
     <string name="title_profile">Profile</string>
     <string name="title_purchase">Purchases</string>
@@ -12,7 +11,7 @@
     <string name="text_placeholder_empty_book_category">You have\'nt add any book category yet</string>
     <string name="text_placeholder_empty_purchase">Purchase history is empty</string>
     <string name="text_profile_name">Administrator</string>
-    <string name="text_profile_email">admin@email.com</string>
+    <string name="text_profile_email">admin@gmail.com</string>
     <string name="text_profile_menu_settings">Application Settings</string>
     <string name="text_profile_menu_about">About Application</string>
     <string name="text_title_profile_menu">Account</string>
@@ -26,7 +25,7 @@
     <string name="text_title_language_activity_setting">Languages</string>
     <string name="text_row_setting_language">Application Language</string>
     <string name="text_title_dialog_about_application">About Application</string>
-    <string name="text_about_application_version">Book Store Admin version %1$s</string>
+    <string name="text_about_application_version" translatable="false">Book Store Admin version %1$s</string>
     <string name="text_about_application_description">This is a Book Store Admin Android Application, intended for study purpose at Cilsy Sekolah Mobile Course3.</string>
     <string name="button_text_visit_cilsy">Visit Cilsy Sekolah Mobile</string>
     <string name="text_equal">:</string>
@@ -76,4 +75,10 @@
     <string name="text_buyer_name">Name</string>
     <string name="text_buyer_email">Email</string>
     <string name="text_title_items_activity_purchase_detail">Items</string>
+    <string name="title_book">Books</string>
+    <string name="edit_book_category_success_msg">Successfully update book category</string>
+    <string name="delete_book_category_success_msg">Successfully delete book category</string>
+    <string name="delete_book_category_error_msg">There is an error when deleting book category</string>
+    <string name="cant_delete_book_category_msg">Can\'t delete this book category since it\'s already applied on Book</string>
+    <string name="edit_book_category_error_msg">There is an error when updating book category</string>
 </resources>

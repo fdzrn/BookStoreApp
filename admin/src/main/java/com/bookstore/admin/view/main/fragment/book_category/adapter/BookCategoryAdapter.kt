@@ -17,6 +17,7 @@ class BookCategoryAdapter(private val bookCategoryItemListener: BookCategoryItem
     private val originalBookCategory = mutableListOf<BookCategory>()
     private var bookCategories = listOf<BookCategory>()
 
+
     fun setData(bookCategoryList: List<BookCategory>) {
         this.originalBookCategory.clear()
         this.originalBookCategory.addAll(bookCategoryList)
