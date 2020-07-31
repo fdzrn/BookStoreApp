@@ -1,5 +1,6 @@
 package com.bookstore.admin.repository
 
+import com.bookstore.admin.constant.BookStatus
 import com.bookstore.admin.dao.remote.RemoteBookDAO
 import com.bookstore.admin.model.request.book.AddBookCategoryRequest
 import com.bookstore.admin.model.request.book.AddBookRequest
@@ -24,6 +25,8 @@ class BookRepository(
         if (it != null) return remoteBookDAO.getBook(it.asBearer())
         else throw SessionHelper.unauthorizedException
     }
+
+    fun getBookStatus() :List<BookStatus> = BookStatus.values().toList()
 
     suspend fun uploadImageBook(bookId: Int, image: File): Response<ResponseBody> =
         userRepository.checkAccessToken().let {

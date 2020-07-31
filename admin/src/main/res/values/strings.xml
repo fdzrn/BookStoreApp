@@ -17,7 +17,7 @@
     <string name="text_title_profile_menu">Account</string>
     <string name="text_title_category_home">Overview</string>
     <string name="text_button_signin">Sign In</string>
-    <string name="text_title_activity_signin">Sign In to\nBook Store Admin</string>
+    <string name="text_title_activity_signin" translatable="false">Sign In to\nBook Store Admin</string>
     <string name="text_hint_input_username">Username</string>
     <string name="text_hint_input_password">Password</string>
     <string name="text_book_price" translatable="false">Rp. %1$d</string>

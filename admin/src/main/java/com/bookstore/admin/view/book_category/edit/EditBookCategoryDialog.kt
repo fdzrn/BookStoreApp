@@ -22,6 +22,11 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class EditBookCategoryDialog : BottomSheetDialogFragment() {
     companion object {
         const val TAG = "EditBookCategoryDialog"
+
+        fun createInstance(bookCategory: BookCategory) : EditBookCategoryDialog =
+            EditBookCategoryDialog().apply {
+                this.bookCategory = bookCategory
+            }
     }
 
     private val mainViewModel: MainViewModel by sharedViewModel()

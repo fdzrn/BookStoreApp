@@ -98,9 +98,9 @@ class BookFragment : Fragment(), BookItemListener {
         if (empty && !placeholder_empty.isShown) placeholder_empty.show()
         else placeholder_empty.hide()
     }
-
+    // TODO: ambil data intent dari EditBookActivity
     override fun onItemClick(book: BookModel) {
-       startActivity(Intent(requireContext(), EditBookActivity::class.java)) //.putExtra(EditBookActivity."DATA",book))
+       startActivity(Intent(requireContext(), EditBookActivity::class.java)) //.putExtra(EditBookActivity.DATA,book))
     }
 
     override fun onItemDraw(books: List<BookModel>) {

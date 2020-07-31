@@ -29,9 +29,7 @@ class EditBookCategoryDialogViewModel(
             try {
                 val result = bookRepository.updateBookCategory(updateBookCategoryRequest)
                 if (result.isSuccessful)
-                    _updateBookCategoryResponse.postValue(
-                        UpdateBookCategoryResponse(RetrofitStatus.SUCCESS)
-                    )
+                    _updateBookCategoryResponse.postValue(UpdateBookCategoryResponse(RetrofitStatus.SUCCESS))
                 else {
                     _updateBookCategoryResponse.postValue(UpdateBookCategoryResponse(RetrofitStatus.FAILURE))
                     Log.e(this::class.java.simpleName, result.toString())
@@ -52,17 +50,16 @@ class EditBookCategoryDialogViewModel(
     fun deleteBookCategory(bookCategoryId: Int) = viewModelScope.launch(Dispatchers.IO) {
         try {
             val beforeDelete = bookRepository.getBookCategory().filter { it.id == bookCategoryId }
-            if (beforeDelete.isEmpty()) {
+            if (beforeDelete.isNotEmpty()) {
                 val deletedBookCategory = bookRepository.deleteBookCategory(bookCategoryId)
-                if (deletedBookCategory.isSuccessful) _deleteBookCategoryResponse.postValue(
-                    DeleteBookCategoryResponse(RetrofitStatus.SUCCESS)
-                )
-                else
+                if (deletedBookCategory.isSuccessful)
+                    _deleteBookCategoryResponse.postValue(DeleteBookCategoryResponse(RetrofitStatus.SUCCESS))
+                else {
                     _deleteBookCategoryResponse.postValue(DeleteBookCategoryResponse(RetrofitStatus.FAILURE))
-                Log.e(this::class.java.simpleName, deletedBookCategory.toString())
+                    Log.e(this::class.java.simpleName, deletedBookCategory.toString())
+                }
             }
-            else
-                _deleteBookCategoryResponse.postValue(DeleteBookCategoryResponse(RetrofitStatus.CONSTRAINT_DETECTED))
+            else _deleteBookCategoryResponse.postValue(DeleteBookCategoryResponse(RetrofitStatus.CONSTRAINT_DETECTED))
         } catch (throwable: Throwable) {
             if (throwable is HttpException && throwable.code() == 401) _deleteBookCategoryResponse.postValue(
                 DeleteBookCategoryResponse(RetrofitStatus.UNAUTHORIZED))

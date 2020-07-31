@@ -73,7 +73,7 @@
     <string name="text_buyer_name">Nama</string>
     <string name="text_buyer_email">Email</string>
     <string name="text_title_items_activity_purchase_detail">Barang</string>
-    <string name="text_title_activity_signin">Menuju ke</string>
+    <string name="text_title_activity_signin">Sign In to\nBook Store Admin</string>
     <string name="text_card_book_count_fragment_home">Buku Tersedia</string>
     <string name="text_hint_input_book_category">Pilih kategori buku</string>
     <string name="text_title_book_author_activity_edit_book">Penulis</string>

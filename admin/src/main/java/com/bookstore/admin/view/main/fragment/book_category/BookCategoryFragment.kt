@@ -62,8 +62,7 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
             showSearchBar()
         }
         button_add.setOnClickListener {
-            AddBookCategoryDialog()
-                .show(requireActivity().supportFragmentManager, AddBookCategoryDialog.TAG)
+            AddBookCategoryDialog().show(requireActivity().supportFragmentManager, AddBookCategoryDialog.TAG)
         }
         button_clear_search.setOnClickListener {
             hideSearchBar()
@@ -76,7 +75,7 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
             }
             true
         }
-        swipe_refresh_layout.setOnClickListener{
+        swipe_refresh_layout.setOnRefreshListener{
             bookCategoryViewModel.getBookCategory()
         }
         recyclerview.apply {
@@ -111,7 +110,7 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
 
 
     override fun onItemClick(bookCategories: BookCategory) {
-        EditBookCategoryDialog().show(requireActivity().supportFragmentManager, EditBookCategoryDialog.TAG)
+        EditBookCategoryDialog.createInstance(bookCategories).show(requireActivity().supportFragmentManager,EditBookCategoryDialog.TAG)
     }
 
     private fun hideSearchBar() {
