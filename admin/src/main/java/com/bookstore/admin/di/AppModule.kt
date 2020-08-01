@@ -7,6 +7,7 @@ import com.bookstore.admin.repository.CartRepository
 import com.bookstore.admin.repository.TransactionRepository
 import com.bookstore.admin.repository.UserRepository
 import com.bookstore.admin.view.book.add.AddBookViewModel
+import com.bookstore.admin.view.book.edit.EditBookViewModel
 import com.bookstore.admin.view.book_category.add.AddBookCategoryDialogViewModel
 import com.bookstore.admin.view.book_category.edit.EditBookCategoryDialogViewModel
 import com.bookstore.admin.view.main.MainViewModel
@@ -42,4 +43,5 @@ val appModule = module {
     viewModel { AddBookCategoryDialogViewModel(get(), get()) }
     viewModel { EditBookCategoryDialogViewModel(get(),get()) }
     viewModel { AddBookViewModel(get(),get()) }
+    viewModel { EditBookViewModel(get(),get()) }
 }
