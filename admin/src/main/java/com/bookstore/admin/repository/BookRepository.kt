@@ -66,27 +66,21 @@ class BookRepository(
         else throw SessionHelper.unauthorizedException
     }
 
-    suspend fun addBookCategory(addBookCategoryRequest: AddBookCategoryRequest): Response<ResponseBody> =
+    suspend fun addBookCategory(addBookCategoryRequest: AddBookCategoryRequest): BookCategory =
         userRepository.checkAccessToken().let {
-            if (it != null) return remoteBookDAO.addBookCategory(
-                it.asBearer(),
-                addBookCategoryRequest
-            )
+            if (it != null) return remoteBookDAO.addBookCategory(it.asBearer(), addBookCategoryRequest)
             else throw SessionHelper.unauthorizedException
         }
 
-    suspend fun updateBookCategory(updateBookCategoryRequest: UpdateBookCategoryRequest): Response<ResponseBody> =
+    suspend fun updateBookCategory(updateBookCategoryRequest: UpdateBookCategoryRequest): BookCategory =
         userRepository.checkAccessToken().let {
-            if (it != null) return remoteBookDAO.updateBookCategory(
-                it.asBearer(),
-                updateBookCategoryRequest
-            )
+            if (it != null) return remoteBookDAO.updateBookCategory(it.asBearer(),updateBookCategoryRequest)
             else throw SessionHelper.unauthorizedException
         }
 
-    suspend fun deleteBookCategory(bookCategoryId: Int): Response<ResponseBody> =
+    suspend fun deleteBookCategory(bookCategoryId: Int): BookCategory =
         userRepository.checkAccessToken().let {
-            if (it != null) return remoteBookDAO.deleteBookCategory(it.asBearer(), bookCategoryId)
+            if (it!=null) return remoteBookDAO.deleteBookCategory(it.asBearer(), bookCategoryId)
             else throw SessionHelper.unauthorizedException
         }
 }

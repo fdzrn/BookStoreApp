@@ -82,5 +82,6 @@
     <string name="delete_book_category_error_msg">Terjadi kesalahan saat menghapus kategori buku</string>
     <string name="cant_delete_book_category_msg">Tidak dapat menghapus kategori buku ini karena sudah diterapkan di Buku</string>
     <string name="edit_book_category_error_msg">Terjadi kesalahan saat memperbarui kategori buku</string>
+    <string name="success_msg_copied_clipboard">Nomor faktur berhasil disalin</string>
 
 </resources>

@@ -12,12 +12,13 @@ import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.view.main.MainViewModel
 import com.bookstore.admin.view.settings.SettingsActivity
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
     private val homeViewModel: HomeViewModel by viewModel()
-    private val mainViewModel: MainViewModel by viewModel()
+    private val mainViewModel: MainViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,7 +37,7 @@ class HomeFragment : Fragment() {
         })
 
         homeViewModel.bookCategoryCountResponse.observe(viewLifecycleOwner, Observer {
-            homeViewModel.getBookCategoryCount()
+            homeViewModel.getPurchaseCount()
             when (it.status) {
                 RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(requireActivity())
                 else -> text_book_category_count.text = it.bookCategoryCount.toString()
@@ -44,7 +45,7 @@ class HomeFragment : Fragment() {
         })
 
         homeViewModel.purchaseCountResponse.observe(viewLifecycleOwner, Observer {
-            homeViewModel.getPurchaseCount()
+            swipe_refresh_layout.isRefreshing = false
             when (it.status) {
                 RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(requireActivity())
                 else -> text_purchase_count.text = it.transactionCount.toString()
@@ -57,7 +58,7 @@ class HomeFragment : Fragment() {
         swipe_refresh_layout.setOnRefreshListener {
             homeViewModel.getBookCount()
         }
-        swipe_refresh_layout.isRefreshing = false
+        swipe_refresh_layout.isRefreshing = true
     }
 
     override fun onResume() {

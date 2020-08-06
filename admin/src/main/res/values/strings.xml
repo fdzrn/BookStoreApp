@@ -81,4 +81,5 @@
     <string name="delete_book_category_error_msg">There is an error when deleting book category</string>
     <string name="cant_delete_book_category_msg">Can\'t delete this book category since it\'s already applied on Book</string>
     <string name="edit_book_category_error_msg">There is an error when updating book category</string>
+    <string name="success_msg_copied_clipboard">Invoice number successfully copied to the clipboard</string>
 </resources>

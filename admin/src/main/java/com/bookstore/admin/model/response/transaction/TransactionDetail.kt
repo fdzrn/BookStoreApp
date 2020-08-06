@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class TransactionDetail(
-    val bookModelModel: BookModel,
+    val bookModel: BookModel,
     val createdBy: String?,
     val createdTime: String,
     val id: Int,

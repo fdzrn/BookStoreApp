@@ -14,6 +14,7 @@ import com.bookstore.admin.view.main.MainViewModel
 import com.bookstore.admin.view.main.fragment.book.BookViewModel
 import com.bookstore.admin.view.main.fragment.book_category.BookCategoryViewModel
 import com.bookstore.admin.view.main.fragment.home.HomeViewModel
+import com.bookstore.admin.view.main.fragment.purchase_history.PurchaseHistoryViewModel
 import com.bookstore.admin.view.signin.SignInViewModel
 import com.bookstore.admin.view.splash_screen.SplashViewModel
 import org.koin.android.viewmodel.dsl.viewModel
@@ -44,4 +45,5 @@ val appModule = module {
     viewModel { EditBookCategoryDialogViewModel(get(),get()) }
     viewModel { AddBookViewModel(get(),get()) }
     viewModel { EditBookViewModel(get(),get()) }
+    viewModel { PurchaseHistoryViewModel(get(),get()) }
 }

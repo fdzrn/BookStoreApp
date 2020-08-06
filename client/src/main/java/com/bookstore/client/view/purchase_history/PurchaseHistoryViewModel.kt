@@ -27,14 +27,14 @@ class PurchaseHistoryViewModel(
             val result = transactionRepository.getPurchaseHistory().sortedByDescending { it.createdTime }
             if (result.isNotEmpty()) _purchaseHistory.postValue(TransactionResponse(RetrofitStatus.SUCCESS,result))
             else {
-                _purchaseHistory.postValue(TransactionResponse(RetrofitStatus.FAILURE))
-                Log.e(this::class.java. simpleName,result.toString())
+                _purchaseHistory.postValue(TransactionResponse(RetrofitStatus.EMPTY))
+                Log.e(this::class.java.simpleName,result.toString())
             }
         } catch (throwable: Throwable) {
             if (throwable is HttpException && throwable.code() == 401)
                 _purchaseHistory.postValue(TransactionResponse(RetrofitStatus.UNAUTHORIZED))
             else
-                _purchaseHistory.postValue(TransactionResponse(RetrofitStatus.EMPTY))
+                _purchaseHistory.postValue(TransactionResponse(RetrofitStatus.FAILURE))
             throwable.printRetrofitError()
         }
 

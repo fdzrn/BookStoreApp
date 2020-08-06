@@ -1,7 +1,6 @@
 package com.bookstore.admin.view.book_category.edit
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -21,24 +20,18 @@ class EditBookCategoryDialogViewModel(
     private val bookRepository: BookRepository
 ) : AndroidViewModel(application) {
     private val _updateBookCategoryResponse = MutableLiveData<UpdateBookCategoryResponse>()
-    var updateBookCategoryResponse: LiveData<UpdateBookCategoryResponse> =
-        _updateBookCategoryResponse
+    var updateBookCategoryResponse: LiveData<UpdateBookCategoryResponse> = _updateBookCategoryResponse
 
     fun updateBookCategory(updateBookCategoryRequest: UpdateBookCategoryRequest) =
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val result = bookRepository.updateBookCategory(updateBookCategoryRequest)
-                if (result.isSuccessful)
-                    _updateBookCategoryResponse.postValue(UpdateBookCategoryResponse(RetrofitStatus.SUCCESS))
-                else {
-                    _updateBookCategoryResponse.postValue(UpdateBookCategoryResponse(RetrofitStatus.FAILURE))
-                    Log.e(this::class.java.simpleName, result.toString())
-                }
+                _updateBookCategoryResponse.postValue(UpdateBookCategoryResponse(RetrofitStatus.SUCCESS, result))
             } catch (throwable: Throwable) {
                 if (throwable is HttpException && throwable.code() == 401)
                     _updateBookCategoryResponse.postValue(UpdateBookCategoryResponse(RetrofitStatus.UNAUTHORIZED))
                 else
-                    _updateBookCategoryResponse.postValue(UpdateBookCategoryResponse(RetrofitStatus.EMPTY))
+                    _updateBookCategoryResponse.postValue(UpdateBookCategoryResponse(RetrofitStatus.FAILURE))
                 throwable.printRetrofitError()
             }
         }
@@ -49,17 +42,15 @@ class EditBookCategoryDialogViewModel(
 
     fun deleteBookCategory(bookCategoryId: Int) = viewModelScope.launch(Dispatchers.IO) {
         try {
-            val beforeDelete = bookRepository.getBookCategory().filter { it.id == bookCategoryId }
-            if (beforeDelete.isNotEmpty()) {
-                val deletedBookCategory = bookRepository.deleteBookCategory(bookCategoryId)
-                if (deletedBookCategory.isSuccessful)
-                    _deleteBookCategoryResponse.postValue(DeleteBookCategoryResponse(RetrofitStatus.SUCCESS))
-                else {
-                    _deleteBookCategoryResponse.postValue(DeleteBookCategoryResponse(RetrofitStatus.FAILURE))
-                    Log.e(this::class.java.simpleName, deletedBookCategory.toString())
-                }
-            }
-            else _deleteBookCategoryResponse.postValue(DeleteBookCategoryResponse(RetrofitStatus.CONSTRAINT_DETECTED))
+            val constraint = bookRepository.getBook().filter { it.bookCategoryId == bookCategoryId }
+            if (constraint.isEmpty()) {
+                val result = bookRepository.deleteBookCategory(bookCategoryId)
+                _deleteBookCategoryResponse.postValue(DeleteBookCategoryResponse(RetrofitStatus.SUCCESS, result))
+            } else _deleteBookCategoryResponse.postValue(
+                DeleteBookCategoryResponse(
+                    RetrofitStatus.CONSTRAINT_DETECTED
+                )
+            )
         } catch (throwable: Throwable) {
             if (throwable is HttpException && throwable.code() == 401) _deleteBookCategoryResponse.postValue(
                 DeleteBookCategoryResponse(RetrofitStatus.UNAUTHORIZED))
