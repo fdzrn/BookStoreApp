@@ -50,6 +50,8 @@ class BookFragment : Fragment(), BookItemListener {
                     placeholder_empty.hide()
                     recyclerview.show()
                     bookAdapter.setData(list)
+                    layout_book_count.show()
+                    text_book_count.text = list.size.toString()
                 }
                 RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(requireActivity())
                 else -> {

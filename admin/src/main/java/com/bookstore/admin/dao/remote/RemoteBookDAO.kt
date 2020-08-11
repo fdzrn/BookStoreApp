@@ -14,9 +14,7 @@ import retrofit2.http.*
 interface RemoteBookDAO {
 
     @GET("/api/rest/book/findAll")
-    suspend fun getBook(
-        @Header("Authorization") authorization: String
-    ): List<BookModel>
+    suspend fun getBook(@Header("Authorization") authorization: String): List<BookModel>
 
     @POST("/api/rest/book/uploadImage/{book_id}")
     @Multipart
@@ -38,6 +36,7 @@ interface RemoteBookDAO {
         @Body updateBookRequest: UpdateBookRequest
     ): Response<ResponseBody>  // kenapa ini Responbody yang di balikinnya?
 
+
     @DELETE("api/rest/book/deleteById/{book_id}")
     suspend fun deleteBook(
         @Header("Authorization") authorization: String,
@@ -45,9 +44,7 @@ interface RemoteBookDAO {
     ): Response<ResponseBody>
 
     @GET("api/rest/book-category/findAll")
-    suspend fun getBookCategory(
-        @Header("Authorization") authorization: String
-    ): List<BookCategory>
+    suspend fun getBookCategory(@Header("Authorization") authorization: String): List<BookCategory>
 
     @POST("api/rest/book-category/save")
     suspend fun addBookCategory(

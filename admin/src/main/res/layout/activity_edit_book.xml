@@ -108,11 +108,10 @@
                         android:layout_width="150dp"
                         android:layout_height="200dp"
                         android:layout_gravity="center"
-                        android:clickable="true"
+                        tools:ignore="UnusedAttribute"
                         android:contentDescription="@null"
-                        android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
-                        tools:ignore="UnusedAttribute" />
+                        android:scaleType="centerCrop" />
 
                     <Button
                         android:id="@+id/button_edit_book_cover"

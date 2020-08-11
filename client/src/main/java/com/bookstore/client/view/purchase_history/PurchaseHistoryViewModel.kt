@@ -24,7 +24,7 @@ class PurchaseHistoryViewModel(
 
     fun callPurchaseHistory() = viewModelScope.launch(Dispatchers.IO) {
         try {
-            val result = transactionRepository.getPurchaseHistory().sortedByDescending { it.createdTime }
+            val result = transactionRepository.getPurchaseHistory().sortedByDescending { it.id }
             if (result.isNotEmpty()) _purchaseHistory.postValue(TransactionResponse(RetrofitStatus.SUCCESS,result))
             else {
                 _purchaseHistory.postValue(TransactionResponse(RetrofitStatus.EMPTY))

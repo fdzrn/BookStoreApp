@@ -14,19 +14,39 @@ import java.util.*
 class BookCategoryAdapter(private val bookCategoryItemListener: BookCategoryItemListener) :
     RecyclerView.Adapter<BookCategoryAdapter.ViewHolder>(), BookCategoryFilterable {
 
-    private val originalBookCategory = mutableListOf<BookCategory>()
+    private val originalBookCategories = mutableListOf<BookCategory>()
     private var bookCategories = listOf<BookCategory>()
 
 
     fun setData(bookCategoryList: List<BookCategory>) {
-        this.originalBookCategory.clear()
-        this.originalBookCategory.addAll(bookCategoryList)
+        this.originalBookCategories.clear()
+        this.originalBookCategories.addAll(bookCategoryList)
         this.bookCategories = bookCategoryList
         notifyDataSetChanged()
-        bookCategoryItemListener.onItemDraw(originalBookCategory)
+        bookCategoryItemListener.onItemDraw(originalBookCategories)
     }
 
-    fun getData() = originalBookCategory
+    fun getData() = originalBookCategories
+
+    fun addData(bookCategory: BookCategory) {
+        originalBookCategories.add(bookCategory)
+        this.bookCategories = originalBookCategories
+        notifyDataSetChanged()
+    }
+
+    fun updateData(bookCategory: BookCategory) {
+        val indexTarget = originalBookCategories.indexOfFirst { it.id == bookCategory.id  }
+        originalBookCategories[indexTarget] = bookCategory
+        this.bookCategories = originalBookCategories
+        notifyDataSetChanged()
+    }
+
+    fun deleteData(bookCategory: BookCategory) {
+        val indexTarget = originalBookCategories.indexOfFirst { it.id == bookCategory.id }
+        originalBookCategories.removeAt(indexTarget)
+        this.bookCategories = originalBookCategories
+        notifyDataSetChanged()
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
@@ -41,11 +61,13 @@ class BookCategoryAdapter(private val bookCategoryItemListener: BookCategoryItem
         holder.bind(bookCategories[position])
 
     override fun filterByName(bookCategoryName: String?) {
-        bookCategories = originalBookCategory
-        if (!bookCategoryName.isNullOrEmpty()) bookCategories = originalBookCategory.filter {
+        bookCategories = originalBookCategories
+        if (!bookCategoryName.isNullOrEmpty()) bookCategories = originalBookCategories.filter {
             it.name.trim().toLowerCase(Locale.getDefault())
                 .contains(bookCategoryName.trim().toLowerCase(Locale.getDefault()))
         }
+        bookCategoryItemListener.onItemSearch(bookCategories.isEmpty())
+        notifyDataSetChanged()
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

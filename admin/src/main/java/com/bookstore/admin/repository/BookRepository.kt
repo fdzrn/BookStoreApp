@@ -1,5 +1,6 @@
 package com.bookstore.admin.repository
 
+import android.util.Log
 import com.bookstore.admin.constant.BookStatus
 import com.bookstore.admin.dao.remote.RemoteBookDAO
 import com.bookstore.admin.model.request.book.AddBookCategoryRequest
@@ -10,6 +11,7 @@ import com.bookstore.admin.model.response.book.BookCategory
 import com.bookstore.admin.model.response.book.BookModel
 import com.bookstore.admin.utils.SessionHelper
 import com.bookstore.admin.utils.SessionHelper.asBearer
+import com.google.gson.Gson
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -50,10 +52,12 @@ class BookRepository(
         }
 
     suspend fun updateBook(updateBookRequest: UpdateBookRequest): Response<ResponseBody> =
-        userRepository.checkAccessToken().let {
+        //Log.i("test5", "onCreate: ${Gson().toJson(updateBookRequest)}")
+         userRepository.checkAccessToken().let {
             if (it != null) return remoteBookDAO.updateBook(it.asBearer(), updateBookRequest)
             else throw  SessionHelper.unauthorizedException
         }
+
 
     suspend fun deleteBook(bookId: Int): Response<ResponseBody> =
         userRepository.checkAccessToken().let {

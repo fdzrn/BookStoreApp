@@ -24,8 +24,7 @@ class PurchaseHistoryViewModel(
 
     fun purchaseHistoryList() = viewModelScope.launch(Dispatchers.IO) {
         try {
-            val result = transaction.getCheckoutHistory().sortedByDescending { it.createdTime }
-            Log.i("test1", "purchaseHistoryList: ${Gson().toJson(result)}")
+            val result = transaction.getCheckoutHistory().sortedByDescending { it.id  }
             if (result.isNotEmpty()) _purchaseHistory.postValue(PurchaseHistoryResponse(RetrofitStatus.SUCCESS, result))
             else {
                 _purchaseHistory.postValue(PurchaseHistoryResponse(RetrofitStatus.EMPTY))

@@ -14,6 +14,7 @@ import com.bookstore.admin.model.request.book.AddBookRequest
 import com.bookstore.admin.model.response.book.BookCategory
 import com.bookstore.admin.repository.BookRepository
 import com.bookstore.admin.utils.Retrofit.printRetrofitError
+import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -21,6 +22,7 @@ import java.io.File
 
 class AddBookViewModel(application: Application, private val bookRepository: BookRepository) :
     AndroidViewModel(application) {
+
     private val _bookCategoryResponse = MutableLiveData<BookCategoryResponse>()
     val bookCategoryResponse: LiveData<BookCategoryResponse> = _bookCategoryResponse
     val currentBookCategory = mutableListOf<BookCategory>()
@@ -59,6 +61,7 @@ class AddBookViewModel(application: Application, private val bookRepository: Boo
             val result = bookRepository.addBook(addBookRequest)
             _addBookResponse.postValue(AddBookResponse(RetrofitStatus.SUCCESS, result))
         } catch (throwable: Throwable) {
+            // Log.i("test8", "onCreate: ${Gson().toJson(throwable.message)}")
             if (throwable is HttpException && throwable.code() == 401)
                 _addBookResponse.postValue(AddBookResponse(RetrofitStatus.UNAUTHORIZED))
             else
@@ -74,7 +77,7 @@ class AddBookViewModel(application: Application, private val bookRepository: Boo
     fun uploadImageBook(bookId: Int, image: File) = viewModelScope.launch(Dispatchers.IO) {
         try {
             val result = bookRepository.uploadImageBook(bookId, image)
-            if (result.isSuccessful)
+            if (result.code() == 200)
                 _uploadBookImageResponse.postValue(UploadBookImageResponse(RetrofitStatus.SUCCESS))
             else {
                 _uploadBookImageResponse.postValue(UploadBookImageResponse(RetrofitStatus.FAILURE))

@@ -14,8 +14,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
-class BookCategoryViewModel(application: Application, private val bookRepository: BookRepository) :
-    AndroidViewModel(application) {
+class BookCategoryViewModel(application: Application, private val bookRepository: BookRepository) : AndroidViewModel(application) {
+
     private val _bookCategoryResponse = MutableLiveData<BookCategoryResponse>()
     val bookCategoryResponse: LiveData<BookCategoryResponse> = _bookCategoryResponse
 

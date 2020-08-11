@@ -7,6 +7,7 @@ import android.content.pm.ActivityInfo
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 import com.livinglifetechway.quickpermissions_kotlin.runWithPermissions
 import com.stfalcon.imageviewer.StfalconImageViewer
 import com.zhihu.matisse.Matisse
@@ -49,6 +51,7 @@ class AddBookActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_book)
         addBookViewModel.bookCategoryResponse.observe(this, Observer { response ->
+            swipe_refresh_layout.isRefreshing = false
             when (response.status) {
                 RetrofitStatus.SUCCESS -> response.list?.let { item ->
                     input_text_book_category.setAdapter(
@@ -64,13 +67,15 @@ class AddBookActivity : AppCompatActivity() {
                 ).show()
             }
         })
-        addBookViewModel.addBookResponse.observe(this, Observer { response ->
-            when (response.status) {
-                RetrofitStatus.SUCCESS -> response.addedBook?.let { addBook ->
-                    addBookViewModel.newBookCoverImage?.let { imageBook ->
+
+        addBookViewModel.addBookResponse.observe(this, Observer {
+            // Log.i("test5", "onCreate: ${Gson().toJson(response)}")
+            when (it.status) {
+                RetrofitStatus.SUCCESS -> it.addedBook?.let { addBook ->
+                    addBookViewModel.newBookCoverImage?.let { bookImage ->
                         addBookViewModel.uploadImageBook(
                             addBook.id,
-                            imageBook
+                            bookImage
                         )
                     }
                 }
@@ -87,10 +92,11 @@ class AddBookActivity : AppCompatActivity() {
                 }
             }
         })
+
         addBookViewModel.uploadBookImageResponse.observe(this, Observer {
             button_edit_book_cover.isEnabled = true
             button_save.isEnabled = true
-            swipe_refresh_layout.isRefreshing = true
+            swipe_refresh_layout.isRefreshing = false
             when (it.status) {
                 RetrofitStatus.SUCCESS -> {
                     finish()

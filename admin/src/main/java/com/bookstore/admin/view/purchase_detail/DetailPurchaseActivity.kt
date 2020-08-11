@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_detail_purchase.*
 
 class DetailPurchaseActivity : AppCompatActivity(), PurchaseDetailListener {
     companion object {
-        const val DATA = "purchase_detail_activity_data"
+        const val DATA = "detail_purchase_activity_data"
     }
     @SuppressLint("DefaultLocale")
     override fun onCreate(savedInstanceState: Bundle?) {

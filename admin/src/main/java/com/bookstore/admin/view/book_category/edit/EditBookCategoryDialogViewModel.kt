@@ -19,8 +19,9 @@ class EditBookCategoryDialogViewModel(
     application: Application,
     private val bookRepository: BookRepository
 ) : AndroidViewModel(application) {
+
     private val _updateBookCategoryResponse = MutableLiveData<UpdateBookCategoryResponse>()
-    var updateBookCategoryResponse: LiveData<UpdateBookCategoryResponse> = _updateBookCategoryResponse
+    val updateBookCategoryResponse: LiveData<UpdateBookCategoryResponse> = _updateBookCategoryResponse
 
     fun updateBookCategory(updateBookCategoryRequest: UpdateBookCategoryRequest) =
         viewModelScope.launch(Dispatchers.IO) {
@@ -37,8 +38,7 @@ class EditBookCategoryDialogViewModel(
         }
 
     private val _deleteBookCategoryResponse = MutableLiveData<DeleteBookCategoryResponse>()
-    val deleteBookCategoryResponse: LiveData<DeleteBookCategoryResponse> =
-        _deleteBookCategoryResponse
+    val deleteBookCategoryResponse: LiveData<DeleteBookCategoryResponse> = _deleteBookCategoryResponse
 
     fun deleteBookCategory(bookCategoryId: Int) = viewModelScope.launch(Dispatchers.IO) {
         try {

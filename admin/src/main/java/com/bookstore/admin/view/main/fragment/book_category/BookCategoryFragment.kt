@@ -19,7 +19,6 @@ import com.bookstore.admin.view.book_category.edit.EditBookCategoryDialog
 import com.bookstore.admin.view.main.MainViewModel
 import com.bookstore.admin.view.main.fragment.book_category.adapter.BookCategoryAdapter
 import com.bookstore.admin.view.main.fragment.book_category.adapter.BookCategoryItemListener
-import kotlinx.android.synthetic.main.fragment_book_category.swipe_refresh_layout
 import kotlinx.android.synthetic.main.fragment_book_category.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -52,8 +51,8 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
                 RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(requireActivity())
                 else -> {
                     button_search.isEnabled = false
-                    placeholder_empty.show()
                     recyclerview.hide()
+                    placeholder_empty.show()
                     layout_book_category_count.hide()
                 }
             }
@@ -62,7 +61,9 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
             showSearchBar()
         }
         button_add.setOnClickListener {
-            AddBookCategoryDialog().show(requireActivity().supportFragmentManager, AddBookCategoryDialog.TAG)
+            AddBookCategoryDialog.createInstance(this).show(
+                requireActivity().supportFragmentManager,AddBookCategoryDialog.TAG
+            )
         }
         button_clear_search.setOnClickListener {
             hideSearchBar()
@@ -97,21 +98,37 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
         else placeholder_empty.hide()
     }
 
-    override fun onItemDraw(bookCategory: List<BookCategory>) {
+    override fun onItemDraw(bookCategories: List<BookCategory>) {
        when {
            input_search.isShown -> layout_book_category_count.hide()
-           bookCategory.isEmpty() -> layout_book_category_count.hide()
+           bookCategories.isEmpty() -> layout_book_category_count.hide()
            else -> {
-               text_book_category_count.text = bookCategory.count().toString()
+               text_book_category_count.text = bookCategories.count().toString()
                layout_book_category_count.show()
            }
        }
     }
 
 
-    override fun onItemClick(bookCategories: BookCategory) {
-        EditBookCategoryDialog.createInstance(bookCategories).show(requireActivity().supportFragmentManager,EditBookCategoryDialog.TAG)
+    override fun onItemClick(bookCategory: BookCategory) {
+        EditBookCategoryDialog.createInstance(bookCategory, this).show(
+            requireActivity().supportFragmentManager,
+            EditBookCategoryDialog.TAG
+        )
     }
+
+    override fun onItemAdd(bookCategory: BookCategory) {
+        bookCategoryAdapter.addData(bookCategory)
+    }
+
+    override fun onItemUpdate(bookCategory: BookCategory) {
+        bookCategoryAdapter.updateData(bookCategory)
+    }
+
+    override fun onItemDelete(bookCategory: BookCategory) {
+       bookCategoryAdapter.deleteData(bookCategory)
+    }
+
 
     private fun hideSearchBar() {
         placeholder_empty.hide()

@@ -14,6 +14,7 @@ import com.bookstore.admin.model.response.book.BookCategory
 import com.bookstore.admin.utils.ViewHelper.hide
 import com.bookstore.admin.utils.ViewHelper.show
 import com.bookstore.admin.view.main.MainViewModel
+import com.bookstore.admin.view.main.fragment.book_category.adapter.BookCategoryItemListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.dialog_edit_book_category.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
@@ -23,15 +24,17 @@ class EditBookCategoryDialog : BottomSheetDialogFragment() {
     companion object {
         const val TAG = "EditBookCategoryDialog"
 
-        fun createInstance(bookCategory: BookCategory) : EditBookCategoryDialog =
+        fun createInstance(bookCategory: BookCategory, bookCategoryItemListener: BookCategoryItemListener? = null) : EditBookCategoryDialog =
             EditBookCategoryDialog().apply {
                 this.bookCategory = bookCategory
+                this.bookCategoryItemListener = bookCategoryItemListener
             }
     }
 
     private val mainViewModel: MainViewModel by sharedViewModel()
     private val editBookCategoryDialogViewModel: EditBookCategoryDialogViewModel by viewModel()
     private lateinit var bookCategory: BookCategory
+    private var bookCategoryItemListener: BookCategoryItemListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +50,9 @@ class EditBookCategoryDialog : BottomSheetDialogFragment() {
                 hideLoading()
                 when(response.status) {
                     RetrofitStatus.SUCCESS -> {
+                        response.bookCategory?.let {
+                            bookCategoryItemListener?.onItemUpdate(it)
+                        }
                         this.dismiss()
                         Toast.makeText(requireContext(),R.string.edit_book_category_success_msg,Toast.LENGTH_SHORT).show()
                     }
@@ -57,6 +63,9 @@ class EditBookCategoryDialog : BottomSheetDialogFragment() {
             editBookCategoryDialogViewModel.deleteBookCategoryResponse.observe(viewLifecycleOwner, Observer {response ->
                 when(response.status) {
                     RetrofitStatus.SUCCESS -> {
+                        response.bookCategory?.let {
+                            bookCategoryItemListener?.onItemDelete(it)
+                        }
                         this.dismiss()
                         Toast.makeText(requireContext(),R.string.delete_book_category_success_msg, Toast.LENGTH_SHORT).show()
                     }

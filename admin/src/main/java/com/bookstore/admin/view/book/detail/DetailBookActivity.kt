@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_detail_book.*
 class DetailBookActivity : AppCompatActivity() {
 
     companion object {
-        const val DATA = "activity_detail_book_Data"
+        const val DATA = "detail_book_activity_data"
     }
 
     @SuppressLint("DefaultLocale")

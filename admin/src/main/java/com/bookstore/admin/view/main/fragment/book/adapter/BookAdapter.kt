@@ -18,12 +18,12 @@ class BookAdapter(private val bookItemListener: BookItemListener) :
     RecyclerView.Adapter<BookAdapter.ViewHolder>(), BookFilterable {
 
     private val originalBooks = mutableListOf<BookModel>()
-    private var booksAfterFilter = listOf<BookModel>()
+    private var modificationBooks = listOf<BookModel>()
 
     fun setData(books: List<BookModel>) {
         this.originalBooks.clear()
-        this.originalBooks.addAll(books.filter { it.bookStatus == BookStatus.FOR_SALE.toString() })
-        this.booksAfterFilter = books
+        this.originalBooks.addAll(books.filter { it.bookStatus == BookStatus.FOR_SELL.toString() })
+        this.modificationBooks = books
         notifyDataSetChanged()
         bookItemListener.onItemDraw(originalBooks)
     }
@@ -33,16 +33,16 @@ class BookAdapter(private val bookItemListener: BookItemListener) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_book_admin, parent,false))
 
-    override fun getItemCount(): Int = booksAfterFilter.size
+    override fun getItemCount(): Int = modificationBooks.size
 
-    override fun onBindViewHolder(holder: BookAdapter.ViewHolder, position: Int) = holder.bind(booksAfterFilter[position])
+    override fun onBindViewHolder(holder: BookAdapter.ViewHolder, position: Int) = holder.bind(modificationBooks[position])
 
     override fun filterByName(bookName: String?) {
-        booksAfterFilter = originalBooks
-        if (!bookName.isNullOrEmpty()) booksAfterFilter = originalBooks.filter {
+        modificationBooks = originalBooks
+        if (!bookName.isNullOrEmpty()) modificationBooks = originalBooks.filter {
             it.title.trim().toLowerCase(Locale.getDefault()).contains(bookName.toLowerCase(Locale.getDefault()))
         }
-        bookItemListener.onItemSearch(booksAfterFilter.isEmpty())
+        bookItemListener.onItemSearch(modificationBooks.isEmpty())
         notifyDataSetChanged()
     }
 
@@ -64,6 +64,5 @@ class BookAdapter(private val bookItemListener: BookItemListener) :
                 bookItemListener.onItemClick(book)
             }
         }
-
     }
 }

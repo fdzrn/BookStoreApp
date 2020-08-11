@@ -12,6 +12,7 @@ import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.model.request.book.AddBookCategoryRequest
 import com.bookstore.admin.utils.ViewHelper.hide
 import com.bookstore.admin.view.main.MainViewModel
+import com.bookstore.admin.view.main.fragment.book_category.adapter.BookCategoryItemListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.dialog_add_book_category.*
@@ -21,10 +22,17 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class AddBookCategoryDialog: BottomSheetDialogFragment() {
     companion object {
         const val TAG = "AddApplicationDialog"
+
+        fun createInstance(
+            bookCategoryItemListener: BookCategoryItemListener? = null
+        ): AddBookCategoryDialog = AddBookCategoryDialog().apply {
+            this.bookCategoryItemListener = bookCategoryItemListener
+        }
     }
 
     private val mainViewModel: MainViewModel by sharedViewModel()
     private val addCategoryDialog: AddBookCategoryDialogViewModel by viewModel()
+    private var bookCategoryItemListener: BookCategoryItemListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -15,12 +15,14 @@ import com.bookstore.admin.model.request.book.UpdateBookRequest
 import com.bookstore.admin.model.response.book.BookCategory
 import com.bookstore.admin.repository.BookRepository
 import com.bookstore.admin.utils.Retrofit.printRetrofitError
+import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.File
 
 class EditBookViewModel (application: Application, private val bookRepository: BookRepository): AndroidViewModel(application) {
+
     private val _bookCategoryResponse = MutableLiveData<BookCategoryResponse>()
     val bookCategoryResponse: LiveData<BookCategoryResponse> = _bookCategoryResponse
     val currentBookCategory = mutableListOf<BookCategory>()
@@ -41,7 +43,6 @@ class EditBookViewModel (application: Application, private val bookRepository: B
             else
                 _bookCategoryResponse.postValue(BookCategoryResponse(RetrofitStatus.FAILURE))
             throwable.printRetrofitError()
-
         }
     }
 
@@ -50,14 +51,16 @@ class EditBookViewModel (application: Application, private val bookRepository: B
     private val _uploadBookImageResponse = MutableLiveData<UploadBookImageResponse>()
     val uploadBookImageResponse: LiveData<UploadBookImageResponse> = _uploadBookImageResponse
     var newBookCoverImage: File? = null
-
+//    private val fileName = "string"
+//    var newBookCoverImage = File(fileName)
+    //TODO: Masuk ke Failure dan return null: open failed: ENOENT (No such file or directory) alias FileNotFoundException
     fun uploadBookImage(bookId: Int, image: File) = viewModelScope.launch(Dispatchers.IO) {
         try {
             val result = bookRepository.uploadImageBook(bookId, image)
-            if (result.isSuccessful)
+            if (result.code() == 200)
                 _uploadBookImageResponse.postValue(UploadBookImageResponse(RetrofitStatus.SUCCESS))
             else {
-                _uploadBookImageResponse.postValue(UploadBookImageResponse(RetrofitStatus.EMPTY))
+                _uploadBookImageResponse.postValue(UploadBookImageResponse(RetrofitStatus.FAILURE))
                 Log.e(this::class.java.simpleName, result.toString())
             }
         } catch (throwable: Throwable){
@@ -68,19 +71,22 @@ class EditBookViewModel (application: Application, private val bookRepository: B
             throwable.printRetrofitError()
         }
     }
+
     private val _updateBookResponse = MutableLiveData<UpdateBookResponse>()
     val updateBookResponse: LiveData<UpdateBookResponse> = _updateBookResponse
 
     fun updateBook(updateBookRequest: UpdateBookRequest) = viewModelScope.launch(Dispatchers.IO) {
         try{
             val result = bookRepository.updateBook(updateBookRequest)
-            if (result.isSuccessful)
+            // Log.i("test6", "onCreate: ${Gson().toJson(result)}")
+            if (result.code() == 200)
                 _updateBookResponse.postValue(UpdateBookResponse(RetrofitStatus.SUCCESS))
             else {
-                _updateBookResponse.postValue(UpdateBookResponse(RetrofitStatus.EMPTY))
+                _updateBookResponse.postValue(UpdateBookResponse(RetrofitStatus.FAILURE))
                 Log.e(this::class.java.simpleName, result.toString())
             }
         } catch (throwable: Throwable) {
+           // Log.i("test7", "onCreate: ${Gson().toJson(throwable)}")
             if (throwable is HttpException && throwable.code() == 401)
                 _updateBookResponse.postValue(UpdateBookResponse(RetrofitStatus.UNAUTHORIZED))
             else

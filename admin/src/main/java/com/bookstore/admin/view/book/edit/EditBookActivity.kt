@@ -9,10 +9,12 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.bookstore.admin.R
+import com.bookstore.admin.constant.BookStatus
 import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.model.request.book.UpdateBookRequest
 import com.bookstore.admin.model.response.book.BookModel
@@ -29,6 +31,7 @@ import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 import com.livinglifetechway.quickpermissions_kotlin.runWithPermissions
 import com.stfalcon.imageviewer.StfalconImageViewer
 import com.zhihu.matisse.Matisse
@@ -48,12 +51,16 @@ class EditBookActivity : AppCompatActivity() {
     private val mainViewModel: MainViewModel by viewModel()
     private val editBookViewModel: EditBookViewModel by viewModel()
 
+    // private lateinit var bookToUpload: String
+
     @SuppressLint("DefaultLocale")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_book)
         intent.getParcelableExtra<BookModel>(DATA).let { book ->
             if (book != null) {
+                // kalau ada data dari API
+                // bookToUpload = book.imageUrl.toString()
                 editBookViewModel.bookCategoryResponse.observe(this, Observer { response ->
                     swipe_refresh_layout.isRefreshing = false
                     when(response.status) {
@@ -63,13 +70,22 @@ class EditBookActivity : AppCompatActivity() {
                             setBookStatus(book)
                         }
                         RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(this)
-                        else ->Snackbar.make(parent_layout, "There is an error when fetching book category", Snackbar.LENGTH_SHORT).show()
+                        else -> Snackbar.make(parent_layout, "There is an error when fetching book category", Snackbar.LENGTH_SHORT).show()
                     }
                 })
                 editBookViewModel.updateBookResponse.observe(this, Observer {
+                   // Log.i("test4", "onCreate: ${Gson().toJson(it)}")
                     when(it.status) {
-                        RetrofitStatus.SUCCESS -> editBookViewModel.newBookCoverImage?.let { bookImage ->
-                            editBookViewModel.uploadBookImage(book.id, bookImage)
+                        RetrofitStatus.SUCCESS -> {
+                            editBookViewModel.newBookCoverImage?.let { bookImage ->
+                                editBookViewModel.uploadBookImage(book.id, bookImage)
+                            }
+//                            val image = editBookViewModel.newBookCoverImage
+//                            editBookViewModel.uploadBookImage(book.id, File(bookToUpload))
+//                            button_edit_book_cover.isEnabled = false
+//                            button_save.isEnabled = false
+//                            button_delete.isEnabled = false
+//                            swipe_refresh_layout.isRefreshing = false
                         }
                         RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(this)
                         else -> {
@@ -81,6 +97,7 @@ class EditBookActivity : AppCompatActivity() {
                         }
                     }
                 })
+                //TODO: masuk ke else karena statusnya dari viewModelnya failure
                 editBookViewModel.uploadBookImageResponse.observe(this, Observer {
                     when(it.status) {
                         RetrofitStatus.SUCCESS -> {
@@ -194,7 +211,7 @@ class EditBookActivity : AppCompatActivity() {
                             authorName = author.trim().capitalize(),
                             price = price.toInt(),
                             synopsis = synopsis.trim().capitalize(),
-                            bookStatus = status.toUpperCase()
+                            bookStatus = if (status == "null") BookStatus.FOR_SELL.toString() else status.toUpperCase()
                         )
                         editBookViewModel.updateBook(updateBookRequest)
                     }
@@ -218,8 +235,6 @@ class EditBookActivity : AppCompatActivity() {
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .error(R.color.colorShimmer)
             .into(object : CustomTarget<File>() {
-                override fun onLoadCleared(placeholder: Drawable?) {}
-
                 override fun onResourceReady(resource: File, transition: Transition<in File>?) {
                     Glide.with(this@EditBookActivity)
                         .load(resource)
@@ -236,6 +251,7 @@ class EditBookActivity : AppCompatActivity() {
                         ) {view, image -> Glide.with(this@EditBookActivity).load(image).into(view)}.withTransitionFrom(image_book_cover).withHiddenStatusBar(false).show()
                     }
                 }
+                override fun onLoadCleared(placeholder: Drawable?) {}
             })
         input_book_title.editText?.setText(book.title.trim().capitalize())
         input_book_author.editText?.setText(book.authorName.trim().capitalize())
@@ -274,6 +290,7 @@ class EditBookActivity : AppCompatActivity() {
             val imagePath = Uri.parse(Matisse.obtainPathResult(data).first()).path
             imagePath?.let {
                 editBookViewModel.changeBookCoverAction(File(it))
+                // bookToUpload = data?.data.toString()
             }
         }
     }

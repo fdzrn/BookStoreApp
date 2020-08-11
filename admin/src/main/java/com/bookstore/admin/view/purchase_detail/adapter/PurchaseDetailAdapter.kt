@@ -13,17 +13,15 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import kotlinx.android.synthetic.main.item_list_book.view.*
 
 class PurchaseDetailAdapter(
-    private val transactionDetail: List<TransactionDetail>,
+    private val transactionDetails: List<TransactionDetail>,
     private val purchaseDetailListener: PurchaseDetailListener
 ) : RecyclerView.Adapter<PurchaseDetailAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): PurchaseDetailAdapter.ViewHolder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_book, parent, false))
 
-    override fun getItemCount(): Int = transactionDetail.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_book, parent, false))
 
-    override fun onBindViewHolder(holder: PurchaseDetailAdapter.ViewHolder, position: Int) = holder.bind(transactionDetail[position])
+    override fun getItemCount(): Int = transactionDetails.size
+
+    override fun onBindViewHolder(holder: PurchaseDetailAdapter.ViewHolder, position: Int) = holder.bind(transactionDetails[position])
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         @SuppressLint("DefaultLocale")
