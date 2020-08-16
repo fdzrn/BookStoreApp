@@ -9,7 +9,6 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -31,7 +30,6 @@ import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.google.gson.Gson
 import com.livinglifetechway.quickpermissions_kotlin.runWithPermissions
 import com.stfalcon.imageviewer.StfalconImageViewer
 import com.zhihu.matisse.Matisse
@@ -104,7 +102,7 @@ class EditBookActivity : AppCompatActivity() {
                             finish()
                             Toast.makeText(this, "SuccessFully update the book", Toast.LENGTH_SHORT).show()
                         }
-                        RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(this)
+                        RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(this) // 401
                         else -> {
                             button_edit_book_cover.isEnabled = true
                             button_save.isEnabled = true

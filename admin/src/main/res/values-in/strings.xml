@@ -13,11 +13,11 @@
     <string name="text_placeholder_empty_book_category">" Anda tidak memiliki kategori buku apapun"</string>
     <string name="text_placeholder_empty_purchase">Riwayat Transaksi Kosong</string>
     <string name="text_profile_name">Administrasi</string>
-    <string name="text_profile_email">admin@gmail.com</string>
+    <string name="text_profile_email">admin@email.com</string>
     <string name="text_profile_menu_settings">Setelan Aplikasi</string>
     <string name="text_profile_menu_about">Tentang Aplikasi</string>
     <string name="text_title_profile_menu">Akun</string>
-    <string name="text_title_category_home">Gambaran</string>
+    <string name="text_title_category_home">Beranda</string>
     <string name="text_button_signin">Masuk</string>
     <string name="text_hint_input_username">Nama pengguna</string>
     <string name="text_hint_input_password">Kata sandi</string>

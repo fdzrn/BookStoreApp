@@ -82,6 +82,6 @@ dengan tujuan pembelajaran di Cilsy Sekolah Mobile Course 3.</string>
     <string name="purchase_history">Riwayat Pembelian</string>
     <string name="text_invoice_warning">Segera bayar tagihan ada sebelum faktur kadaluarsa</string>
     <string name="text_placeholder_error_server">Saat ini terjadi kesalahan pada server kami, coba lagi nanti.</string>
-    <string name="text_placeholder_empty_search_purchase_history">Kami tidak dapat menemukan nomor faktur ini dalam riwayat pembelian Anda</string>
-    <string name="text_placeholder_empty_purchase_history">Cari nomor faktur</string>
+    <string name="text_placeholder_empty_search_purchase_history">Tidak dapat menemukan nomor faktur ini dalam riwayat pembelian</string>
+    <string name="text_placeholder_empty_purchase_history">Keranjang Belanja Kosong</string>
 </resources>

@@ -55,6 +55,7 @@ class EditBookCategoryDialog : BottomSheetDialogFragment() {
                         }
                         this.dismiss()
                         Toast.makeText(requireContext(),R.string.edit_book_category_success_msg,Toast.LENGTH_SHORT).show()
+                        // tambah function swipe_refresh
                     }
                     RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(requireActivity())
                     else -> Toast.makeText(requireContext(),R.string.edit_book_category_error_msg,Toast.LENGTH_SHORT).show()
@@ -68,6 +69,7 @@ class EditBookCategoryDialog : BottomSheetDialogFragment() {
                         }
                         this.dismiss()
                         Toast.makeText(requireContext(),R.string.delete_book_category_success_msg, Toast.LENGTH_SHORT).show()
+                        // tambah juga swipe_refresh
                     }
                     RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(requireActivity())
                     RetrofitStatus.CONSTRAINT_DETECTED -> {

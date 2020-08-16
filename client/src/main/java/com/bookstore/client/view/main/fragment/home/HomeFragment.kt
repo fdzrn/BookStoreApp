@@ -22,9 +22,8 @@ class HomeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         search_bar.setOnClickListener { startActivity(Intent(requireContext(), SearchBookActivity::class.java)) }
-        button_settings.setOnClickListener {
-            startActivity(Intent(requireContext(), SettingsActivity::class.java))
-        }
+        button_settings.setOnClickListener { startActivity(Intent(requireContext(), SettingsActivity::class.java))}
+
         button_category_fiction.setOnClickListener{
             openSearchActivityByType(BookType.FICTION)
         }

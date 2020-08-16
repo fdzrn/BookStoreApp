@@ -59,7 +59,7 @@ class BookAdapter(private val bookItemListener: BookItemListener) :
                 .error(R.color.colorShimmer)
                 .into(itemView.image_cover)
             itemView.text_title_item_list.text = book.title.trim().capitalize()
-            itemView.text_category_item_list.text = book.title.trim().capitalize()
+            itemView.text_category_item_list.text = book.authorName.trim().capitalize()
             itemView.card_item_list_book.setOnClickListener {
                 bookItemListener.onItemClick(book)
             }
